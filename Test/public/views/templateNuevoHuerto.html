@@ -1,0 +1,44 @@
+<div class="container" ng-controller="insertarHuertoControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Huerto : </label>
+					 		<input type="number" class="form-group" placeholder="huerto" ng-model="huerto.codigo">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="huerto.nombre">
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Predio :</label>
+						 	<input type="text" class="form-group" placeholder="predio" ng-model="huerto.predio">
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosHuerto(huerto)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosHuerto()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

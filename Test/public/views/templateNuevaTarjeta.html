@@ -1,0 +1,50 @@
+<div class="container" ng-controller="insertarTarjetaControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Tarjeta : </label>
+					 		<input type="number" class="form-group" placeholder="tarjeta" ng-model="tarjeta.IdTarjeta">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Fecha Ingreso :</label>
+						 	<input type="text" class="form-group" placeholder="ingreso" ng-model="tarjeta.FechaIngreso">
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Rut :</label>
+						 	<select ng-model="tarjeta.Rut"  ng-controller="obtenerNombreTrabajadoresControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreTrabajadores">{{nombre.Rut}}</option>
+							</select>
+					 	</div>
+				 </div>
+
+
+
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosTarjeta(tarjeta)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosTarjeta()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

@@ -1,0 +1,75 @@
+<div class="container" ng-controller="insertarUsuarioControllers">
+
+			<!-- <div class="row"> -->
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Codigo : </label>
+					 		<input type="number" class="form-group" placeholder="codigo" ng-model="usuario.IdUsuario">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="usuario.Nombre">
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Apellido :</label>
+						 	<input type="text" class="form-group" placeholder="apellido" ng-model="usuario.Apellido">
+					 	</div>
+				 </div>
+
+				  <div class="span3">
+					 	<div class="form-group">
+							<label for="">Perfil :</label>
+						 	<select ng-model="usuario.IdPerfil"  ng-controller="obtenerNombrePerfilesControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombrePerfiles">{{nombre.Login}}</option>
+							</select>
+
+					 	</div>
+				 </div>	
+
+				 
+				</form>	
+
+				<form role="form-inline">
+					<div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cargo :</label>
+						 	<select ng-model="usuario.IdCargo"  ng-controller="obtenerNombreCargosControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  <option  ng-repeat="nombre in nombreCargos">{{nombre.Nombre}}</option>
+							</select>
+
+					 	</div>
+				 </div>
+
+				</form>
+
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosUsuario(usuario)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosUsuario()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

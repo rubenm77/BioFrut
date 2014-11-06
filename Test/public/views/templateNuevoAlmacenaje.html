@@ -1,0 +1,37 @@
+<div class="container" ng-controller="insertarAlmacenajeControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Almacenaje : </label>
+					 		<input type="number" class="form-group" placeholder="almacenaje" ng-model="almacenaje.codigo">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="almacenaje.nombre">
+					 	</div>
+				 </div>	
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosAlacenaje(almacenaje)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosAlmacenaje()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

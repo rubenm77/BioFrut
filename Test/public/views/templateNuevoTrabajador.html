@@ -1,0 +1,59 @@
+<div class="container" ng-controller="insertarTrabajadorControllers">
+
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Rut : </label>
+					 		<input type="text" class="form-group" placeholder="Rut" ng-model="trabajador.Rut">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" class="form-group" placeholder="Nombre" ng-model="trabajador.Nombre">
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Apellido :</label>
+						 	<input type="text" class="form-group" placeholder="Apellido" ng-model="trabajador.Apellido">
+					 	</div>
+				 </div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Fecha de Nacimiento :</label>
+						 	<input type="text" class="form-group" placeholder="Año/Mes/Dia" ng-model="trabajador.FechaNacimiento">
+					 	</div>
+				 </div>
+
+				</form>
+
+				<form role="form-inline">
+
+				  <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Telefono :</label>
+						 	<input type="text" class="form-group" placeholder="Telefono" ng-model="trabajador.Telefono">
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br><br><br><br><br><br><br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosTrabajador(trabajador)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosTrabajador()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

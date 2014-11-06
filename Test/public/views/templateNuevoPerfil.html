@@ -1,0 +1,44 @@
+<div class="container" ng-controller="insertarPerfilControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span4">
+
+					 	<div class="form-group">
+					 		<label for="">Codigo : </label>
+					 		<input type="number" class="form-group" placeholder="codigo" ng-model="perfil.IdPerfil">
+					 	</div>
+
+					</div>
+
+				 <div class="span4">
+					 	<div class="form-group">
+							<label for="">Login :</label>
+						 	<input type="text" class="form-group" placeholder="login" ng-model="perfil.Login">
+					 	</div>
+				 </div>	
+
+				 <div class="span4">
+					 	<div class="form-group">
+						 	<label for="">Password :</label>
+						 	<input type="text" class="form-group" placeholder="password" ng-model="perfil.Password">
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosPerfil(perfil)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosPerfil()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

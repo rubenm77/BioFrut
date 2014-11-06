@@ -1,0 +1,451 @@
+
+// app/routes.js
+module.exports = function(app, passport) {
+
+		var usuario = require('../otrobackend/routes/usuario');
+		var perfil = require('../otrobackend/routes/perfil'); 
+		var cargo = require('../otrobackend/routes/cargo');
+		var bandeja = require('../otrobackend/routes/bandeja');
+		var bodega = require('../otrobackend/routes/bodega');
+		var calificacion = require('../otrobackend/routes/calificacion');
+		var ciudad = require('../otrobackend/routes/ciudad');
+		var control = require('../otrobackend/routes/control');
+		var cuadrilla = require('../otrobackend//routes/cuadrilla');
+		var fundo = require('../otrobackend/routes/fundo');
+		var guia = require('../otrobackend/routes/guia');
+		var huerto = require('../otrobackend/routes/huerto');
+		var merma = require('../otrobackend/routes/merma');
+		var pais = require('../otrobackend/routes/pais');
+		var pale = require('../otrobackend/routes/pale');
+		var predio = require('../otrobackend/routes/predio');
+		var producto = require('../otrobackend/routes/producto');
+		var region = require('../otrobackend/routes/region');
+		var stock = require('../otrobackend/routes/stock');
+		var tarjeta = require('../otrobackend/routes/tarjeta');
+		var almacenaje = require('../otrobackend/routes/almacenaje');
+		var tproducto = require('../otrobackend/routes/tproducto');
+		var trabajador = require('../otrobackend/routes/trabajador');
+		var zona = require('../otrobackend/routes/zona');
+
+
+	// =====================================
+	// LOGIN ===============================
+	// =====================================
+	// show the login form
+	app.get('/login', function(req, res) {
+		// console.log(res.body);
+		res.redirect('./views/login.html');
+		// render the page and pass in any flash data if it exists
+		// res.render('login', { message: req.flash('loginMessage') });
+	});
+
+	app.get('/admin', function(req, res) {
+		// console.log(req.ip);
+		res.redirect('./views/Admin.html');
+		// res.render('views/profile.html', {
+		// 	user : req.user // get the user out of session and pass to template
+		// });
+	});
+
+
+	app.get('/profile', function(req, res) {
+		// console.log(req.user.Login); expone los datos del usuario
+		if(req.get('host') === 'localhost:3000'){
+
+			res.redirect('./views/profile.html');
+
+		}else if(req.get('host') === 'localhost:5000'){
+
+			switch(req.user.cargo){
+				case 'Administrador': res.redirect('./views/Admin.html');
+						
+				 break;
+
+				case 'Digitador': res.redirect('./views/Digitador.html');
+
+				 break;
+
+				case 'Bodeguero':res.redirect('./views/Bodeguero.html'); 
+
+				 break;
+			}
+			
+
+		}
+		
+	
+	});
+
+
+	// process the login form
+	app.post('/systemLogin', passport.authenticate('local-login', {
+            successRedirect : '/profile', // redirect to the secure profile section
+            failureRedirect : '/login', // redirect back to the signup page if there is an error
+            failureFlash : true, // allow flash messages
+            passReqToCallback: true
+		}),
+        function(req, res) {
+        // console.log();
+
+            if (req.body.remember) {
+             
+              req.session.cookie.maxAge = 1000 * 60 * 3;
+            } else {
+              req.session.cookie.expires = true;
+            }
+
+        res.redirect('/');
+    });
+
+
+
+	app.get('/usuario/todosLosUsuarios',usuario.todosLosUsuarios);
+
+	app.get('/usuario/obtenerUsuario/:codigo',usuario.obtenerUsuario);
+
+	app.post('/usuario/insertarUsuario/usuario',usuario.insertarUsuario);
+
+	app.put('/usuario/actualizarUsuario', usuario.actualizarUsuario);
+
+	app.delete('/usuario/eliminarUsuario',usuario.eliminarUsuario);
+
+
+	// rutas de las solicitudes a la tabla perfil
+	app.get('/perfil/todosLosPerfiles', perfil.todosLosPerfiles);
+
+	app.get('/perfil/obtenerNombresPerfiles', perfil.obtenerNombresPerfiles);
+
+	app.get('/perfil/obtenerPerfil/:codigo', perfil.obtenerPerfil);
+
+	app.post('/perfil/insertarPerfil/perfil', perfil.insertarPerfil);
+
+	app.put('/perfil/actualizarPerfil', perfil.actualizarPerfil);
+
+	app.delete('/perfil/eliminarPerfil', perfil.eliminarPerfil);
+
+
+
+	// rutas de las solicitudes a la tabla cargo
+	app.get('/cargo/todosLosCargos', cargo.todosLosCargos);
+
+	app.get('/cargo/obtenerNombreCargos',cargo.obtenerNombreCargos);
+
+	app.get('/cargo/obtenerCargo/:codigo', cargo.obtenerCargo);
+
+	app.post('/cargo/insertarCargo/cargo', cargo.insertarCargo);
+
+	app.put('/cargo/actualizarCargo', cargo.actualizarCargo);
+
+	app.delete('/cargo/eliminarCargo', cargo.eliminarCargo);
+
+
+	// rutas de las solicitudes a la tabla bandeja
+	app.get('/bandeja/todasLasBandejas', bandeja.todasLasBandejas);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/bandeja/obtenerBandeja/:codigo', bandeja.obtenerBandeja);
+
+	app.post('/bandeja/insertarBandeja/bandeja', bandeja.insertarBandeja);
+
+	app.put('/bandeja/actualizarBandeja', bandeja.actualizarBandeja);
+
+	app.delete('/bandeja/eliminarBandeja', bandeja.eliminarBandeja);
+
+
+	// rutas de las solicitudes a la tabla bodega
+	app.get('/bodega/todasLasBodegas', bodega.todasLasBodegas);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/bodega/obtenerBodega/:codigo', bodega.obtenerBodega);
+
+	app.post('/bodega/insertarBodega/bodega', bodega.insertarBodega);
+
+	app.put('/bodega/actualizarBodega', bodega.actualizarBodega);
+
+	app.delete('/bodega/eliminarBodega', bodega.eliminarBodega);
+
+
+	// rutas de las solicitudes a la tabla calificacion
+	app.get('/calificacion/todasLasCalificaciones', calificacion.todasLasCalificaciones);
+
+	app.get('/calificacion/obtenerNombreCalificaciones', calificacion.obtenerNombreCalificaciones);
+
+	app.get('/calificacion/obtenerCalificacion/:codigo', calificacion.obtenerCalificacion);
+
+	app.post('/calificacion/insertarCalificacion/calificacion', calificacion.insertarCalificacion);
+
+	app.put('/calificacion/actualizarCalificacion', calificacion.actualizarCalificacion);
+
+	app.delete('/calificacion/eliminarCalificacion', calificacion.eliminarCalificacion);
+
+
+	// rutas de las solicitudes a la tabla ciudad
+	app.get('/ciudad/todasLasCiudades', ciudad.todasLasCiudades);
+
+	app.get('/ciudad/obtenerNombreCiudades', ciudad.obtenerNombreCiudades);
+
+	app.get('/ciudad/obtenerCiudad/:codigo', ciudad.obtenerCiudad);
+
+	app.post('/ciudad/insertarCiudad/ciudad', ciudad.insertarCiudad);
+
+	app.put('/ciudad/actualizarCiudad', ciudad.actualizarCiudad);
+
+	app.delete('/ciudad/eliminarCiudad', ciudad.eliminarCiudad);
+
+
+	// rutas de las solicitudes a la tabla control
+	app.get('/control/todosLosControles', control.todosLosControles);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/control/obtenerControl/:codigo', control.obtenerControl);
+
+	app.post('/control/insertarControl/control', control.insertarControl);
+
+	app.put('/control/actualizarControl', control.actualizarControl);
+
+	app.delete('/control/eliminarControl', control.eliminarControl);
+
+
+	// rutas de las solicitudes a la tabla cuadrilla
+	app.get('/cuadrilla/todasLasCuadrillas', cuadrilla.todasLasCuadrillas);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/cuadrilla/obtenerCuadrilla/:codigo', cuadrilla.obtenerCuadrilla);
+
+	app.post('/cuadrilla/insertarCuadrilla/cuadrilla', cuadrilla.insertarCuadrilla);
+
+	app.put('/cuadrilla/actualizarCuadrilla', cuadrilla.actualizarCuadrilla);
+
+	app.delete('/cuadrilla/eliminarCuadrilla', cuadrilla.eliminarCuadrilla);
+
+
+	// rutas de las solicitudes a la tabla fundo
+	app.get('/fundo/todosLosFundos', fundo.todosLosFundos);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/fundo/obtenerFundo/:codigo', fundo.obtenerFundo);
+
+	app.post('/fundo/insertarFundo/fundo', fundo.insertarFundo);
+
+	app.put('/fundo/actualizarFundo', fundo.actualizarFundo);
+
+	app.delete('/fundo/eliminarFundo', fundo.eliminarFundo);
+
+
+	// rutas de las solicitudes a la tabla guia
+	app.get('/guia/todasLasGuias', guia.todasLasGuias);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/guia/obtenerGuia/:codigo', guia.obtenerGuia);
+
+	app.post('/guia/insertarGuia/guia', guia.insertarGuia);
+
+	app.put('/guia/actualizarGuia', guia.actualizarGuia);
+
+	app.delete('/guia/eliminarGuia', guia.eliminarGuia);
+
+
+	// rutas de las solicitudes a la tabla huerto
+	app.get('/huerto/todosLosHuertos', huerto.todosLosHuertos);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/huerto/obtenerHuerto/:codigo', huerto.obtenerHuerto);
+
+	app.post('/huerto/insertarHuerto/huerto', huerto.insertarHuerto);
+
+	app.put('/huerto/actualizarHuerto', huerto.actualizarHuerto);
+
+	app.delete('/huerto/eliminarHuerto', huerto.eliminarHuerto);
+
+
+	// rutas de las solicitudes a la tabla merma
+	app.get('/merma/todasLasMermas', merma.todasLasMermas);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/merma/obtenerMerma/:codigo', merma.obtenerMerma);
+
+	app.post('/merma/insertarMerma/merma', merma.insertarMerma);
+
+	app.put('/merma/actualizarMerma', merma.actualizarMerma);
+
+	app.delete('/merma/eliminarMerma', merma.eliminarMerma);
+
+
+	// rutas de las solicitudes a la tabla pais
+	app.get('/pais/todosLosPaises', pais.todosLosPaises);
+
+	app.get('/pais/obtenerNombrePaises', pais.obtenerNombrePaises);
+
+	app.get('/pais/obtenerPais/:codigo', pais.obtenerPais);
+
+	app.post('/pais/insertarPais/pais', pais.insertarPais);
+
+	app.put('/pais/actualizarPais', pais.actualizarPais);
+
+	app.delete('/pais/eliminarPais', pais.eliminarPais);
+
+
+	// rutas de las solicitudes a la tabla pale
+	app.get('/pale/todosLosPales', pale.todosLosPales);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/pale/obtenerPale/:codigo', pale.obtenerPale);
+
+	app.post('/pale/insertarPale/pale', pale.insertarPale);
+
+	app.put('/pale/actualizarPale' , pale.actualizarPale);
+
+	app.delete('/pale/eliminarPale', pale.eliminarPale);
+
+
+	// rutas de las solicitudes a la tabla predio
+	app.get('/predio/todosLosPredios', predio.todosLosPredios);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/predio/obtenerPredio/:codigo', predio.obtenerPredio);
+
+	app.post('/predio/insertarPredio/predio', predio.insertarPredio);
+
+	app.put('/predio/actualizarPredio', predio.actualizarPredio);
+
+	app.delete('/predio/eliminarPredio', predio.eliminarPredio);
+
+
+	// rutas de las solicitudes a la tabla producto
+	app.get('/producto/todosLosProductos', producto.todosLosProductos);
+
+	app.get('/producto/obtenerNombreProductos',producto.obtenerNombreProductos);
+
+	app.get('/producto/obtenerProducto/:codigo', producto.obtenerProducto);
+
+	app.post('/producto/insertarProducto/producto', producto.insertarProducto);
+
+	app.put('/producto/actualizarProducto', producto.actualizarProducto);
+
+	app.delete('/producto/eliminarProducto', producto.eliminarProducto);
+
+
+	// rutas de las solicitudes a la tabla region
+	app.get('/region/todasLasRegiones', region.todasLasRegiones);
+
+	app.get('/region/obtenerNombreRegiones', region.obtenerNombreRegiones);
+
+	app.get('/region/obtenerRegion/:codigo', region.obtenerRegion);
+
+	app.post('/region/insertarRegion/region', region.insertarRegion);
+
+	app.put('/region/actualizarRegion', region.actualizarRegion);
+
+	app.delete('/region/eliminarRegion', region.eliminarRegion);
+
+
+	// rutas de las solicitudes a la tabla stock
+	app.get('/stock/todosLosStocks', stock.todosLosStocks);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/stock/obtenerStock/:codigo', stock.obtenerStock);
+
+	app.post('/stock/insertarStock/stock', stock.insertarStock);
+
+	app.put('/stock/actualizarStock', stock.actualizarStock);
+
+	app.delete('/stock/eliminarStock', stock.eliminarStock);
+
+
+	// rutas de las solicitudes a la tabla tarjeta trabajador
+	app.get('/tarjeta/todasLasTarjetas', tarjeta.todasLasTarjetas);
+
+	app.get('/tarjeta/obtenerNombreTarjetas',tarjeta.obtenerNombreTarjetas);
+
+	app.get('/tarjeta/obtenerTarjeta/:codigo', tarjeta.obtenerTarjeta);
+
+	app.post('/tarjeta/insertarTarjeta/tarjeta', tarjeta.insertarTarjeta);
+
+	app.put('/tarjeta/actualizarTarjeta', tarjeta.actualizarTarjeta);
+
+	app.delete('/tarjeta/eliminarTarjeta', tarjeta.eliminarTarjeta);
+
+
+	// rutas de las solicitudes a la tabla tipo almacenaje
+	app.get('/almacenaje/todosLosAlmacenajes', almacenaje.todosLosAlmacenajes);
+
+	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+
+	app.get('/almacenaje/obtenerAlmacenaje/:codigo', almacenaje.obtenerAlmacenaje);
+
+	app.post('/almacenaje/insertarAlmacenaje/almacenaje', almacenaje.insertarAlmacenaje);
+
+	app.put('/almacenaje/actualizarAlmacenaje', almacenaje.actualizarAlmacenaje);
+
+	app.delete('/almacenaje/eliminarAlmacenaje', almacenaje.eliminarAlmacenaje);
+
+
+	// rutas de las solicitudes a la tabla tipo producto
+	app.get('/tproducto/todosLosTproductos', tproducto.todosLosTproductos);
+
+	app.get('/tproducto/obtenerNombreTproductos',tproducto.obtenerNombreTproductos);
+
+	app.get('/tproducto/obtenerTproducto/:codigo', tproducto.obtenerTproducto);
+
+	app.post('/tproducto/insertarTproducto/tproducto', tproducto.insertarTproducto);
+
+	app.put('/tproducto/actualizarTproducto', tproducto.actualizarTproducto);
+
+	app.delete('/tproducto/eliminarTproducto', tproducto.eliminarTproducto);
+
+
+	// rutas de las solicitudes a la tabla trabajador
+	app.get('/trabajador/todosLosTrabajadores', trabajador.todosLosTrabajadores);
+
+	app.get('/trabajador/obtenerNombreTrabajadores', trabajador.obtenerNombreTrabajadores);
+
+	app.get('/trabajador/obtenerTrabajador/:codigo', trabajador.obtenerTrabajador);
+
+	app.post('/trabajador/insertarTrabajador/trabajador', trabajador.insertarTrabajador);
+
+	app.put('/trabajador/actualizarTrabajador', trabajador.actualizarTrabajador);
+
+	app.delete('/trabajador/eliminarTrabajador', trabajador.eliminarTrabajador);
+
+
+	// rutas de las solicitudes a la tabla zona
+	app.get('/zona/todasLasZonas', zona.todasLasZonas);
+
+	app.get('/zona/obtenerZona/:codigo', zona.obtenerZona);
+
+	app.post('/zona/insertarZona/zona', zona.insertarZona);
+
+	app.put('/zona/actualizarZona', zona.actualizarZona);
+
+	app.delete('/zona/eliminarZona', zona.eliminarZona);
+
+
+	// =====================================
+	// LOGOUT ==============================
+	// =====================================
+	app.get('/logout', function(req, res) {
+		req.logout();
+		res.redirect('/');
+	});
+};
+
+// route middleware to make sure
+function isLoggedIn(req, res, next) {
+	// console.log(req.get('host')+req.isAuthenticated());
+	if (req.isAuthenticated()){
+		return next();
+}
+	// if they aren't redirect them to the home page
+	res.redirect('/');
+}

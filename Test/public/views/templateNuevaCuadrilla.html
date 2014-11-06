@@ -1,0 +1,46 @@
+<div class="container" ng-controller="insertarCuadrillaControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Cuadrilla : </label>
+					 		<input type="number" class="form-group" placeholder="cuadrilla" ng-model="cuadrilla.codigo">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="cuadrilla.nombre">
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Tarjet Identificacion :</label>
+						 	<input type="text" class="form-group" placeholder="identificacion" ng-model="cuadrilla.tarjeta">
+					 	</div>
+				 </div>
+
+
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosCuadrilla(cuadrilla)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosCuadrilla()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

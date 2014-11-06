@@ -1,0 +1,44 @@
+<div class="container" ng-controller="insertarMermaControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Merma : </label>
+					 		<input type="number" class="form-group" placeholder="bodega" ng-model="merma.codigo">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Cantidad Bandejas :</label>
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="merma.bandejas">
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Estado :</label>
+						 	<input type="text" class="form-group" placeholder="direccion" ng-model="merma.estado">
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosMerma(merma)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosMerma()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

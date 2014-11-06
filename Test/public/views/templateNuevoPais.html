@@ -1,0 +1,38 @@
+<div class="container" ng-controller="insertarPaisControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Pais : </label>
+					 		<input type="number" class="form-group" placeholder="pais" ng-model="pais.IdPais">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="pais.Nombre">
+					 	</div>
+				 </div>	
+
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosPais(pais)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosPais()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

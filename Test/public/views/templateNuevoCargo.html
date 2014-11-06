@@ -1,0 +1,51 @@
+<div class="container" ng-controller="insertarCargoControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Codigo : </label>
+					 		<input type="number" class="form-group" placeholder="codigo" ng-model="cargo.IdCargo">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="cargo.Nombre">
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Area :</label>
+						 	<input type="text" class="form-group" placeholder="area" ng-model="cargo.Area">
+					 	</div>
+				 </div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Descripcion :</label>
+						 	<input type="text" class="form-group" placeholder="descripcion" ng-model="cargo.Descripcion">
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosCargo(cargo)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosCargo()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

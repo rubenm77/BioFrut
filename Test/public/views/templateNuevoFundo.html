@@ -1,0 +1,52 @@
+<div class="container" ng-controller="insertarFundoControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Fundo : </label>
+					 		<input type="number" class="form-group" placeholder="fundo" ng-model="fundo.codigo">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="funfo.nombre">
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Direccion :</label>
+						 	<input type="text" class="form-group" placeholder="direccion" ng-model="fundo.direccion">
+					 	</div>
+				 </div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">cod. Ciudad :</label>
+						 	<input type="text" class="form-group" placeholder="ciudad" ng-model="fundo.ciudad">
+					 	</div>
+				 </div>
+
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosFundo(fundo)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosFundo()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>

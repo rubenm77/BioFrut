@@ -1,0 +1,37 @@
+<div class="container" ng-controller="insertarCalificacionControllers">
+
+			
+				<form role="form-inline">
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Calificacion : </label>
+					 		<input type="number" class="form-group" placeholder="calificacion" ng-model="calificacion.IdCalificacion">
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nota :</label>
+						 	<input type="text" class="form-group" placeholder="nota" ng-model="calificacion.Nota">
+					 	</div>
+				 </div>	
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button class="btn btn-success" ng-click="obtenerDatosCalificacion(calificacion)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<button class="btn" ng-click="limpiarDatosCalificacion()">Limpiar Campos</button>
+
+				 </div>
+
+			
+
+</div>
