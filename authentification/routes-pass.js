@@ -60,11 +60,11 @@ module.exports = function(app, passport) {
 						
 				 break;
 
-				case 'Digitador': res.redirect('./views/Digitador.html');
+				case 'Digitador': res.redirect('./views/templateProduccionSeleccion.html');
 
 				 break;
 
-				case 'Bodeguero':res.redirect('./views/Bodeguero.html'); 
+				case 'Bodeguero':res.redirect('./views/templateMenuBodega.html'); 
 
 				 break;
 			}
