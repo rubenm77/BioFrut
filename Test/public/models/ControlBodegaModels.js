@@ -1,9 +1,9 @@
 // rescata todos los usuarios del sistema desde el API RESTful
-BioFrut.service('todasLasGuiasModels', function($http){
+BioFrut.service('todosLosControlesBodegaModels', function($http){
 
-  this.todasLasGuias = function(){
+  this.todosLosControlesBodegas = function(){
 
-		return $http({method:'GET',url:'http://localhost:3000/guia/todasLasGuias'});
+		return $http({method:'GET',url:'http://localhost:3000/controlbodega/todosLosControlesBodega'});
   			
     }  
 
@@ -22,11 +22,11 @@ BioFrut.service('todasLasGuiasModels', function($http){
 
 
 // obtiene un usuario en especifico del sistema desde el API RESTful
-BioFrut.service('obtenerGuiaModels', function($http){
+BioFrut.service('obtenerControlBodegaModels', function($http){
 
-  this.obtenerGuia = function(){
+  this.obtenerControlBodega = function(){
 
-  		return $http({method:'GET', url:'http://localhost:3000/guia/obtenerDatosGuia'}).success(function(data){
+  		return $http({method:'GET', url:'http://localhost:3000/controlbodega/obtenerControlBodega'}).success(function(data){
   		});
   }
 
@@ -34,11 +34,11 @@ BioFrut.service('obtenerGuiaModels', function($http){
 
 
 // actualizar un usuario en especifico del sistema hacia el API RESTful
-BioFrut.service('actualizarGuiaModels', function($http){
+BioFrut.service('actualizarControlBodegaModels', function($http){
 
-  this.actualizarGuia = function(){
+  this.actualizarControlBodega = function(){
 
-  		return $http({method:'PUT', url:'http://localhost:3000/guia/actualizarGuia/1'}).success(function(data){
+  		return $http({method:'PUT', url:'http://localhost:3000/controlbodega/actualizarControlBodega'}).success(function(data){
   		});
   }
 
@@ -46,13 +46,12 @@ BioFrut.service('actualizarGuiaModels', function($http){
 
 
 // insertar un usuario en especifico del sistema hacia el API RESTful
-BioFrut.service('insertarGuiaModels', function($http){
+BioFrut.service('insertarControlBodegaModels', function($http){
 
-  this.insertarGuia = function(guia){
+  this.insertarControlBodega = function(guia){
     
-  var guia = JSON.stringify(guia);
-  console.log(guia);
-  return $http({method:'POST', url:'http://localhost:3000/guia/insertarGuia/guia', data: guia});
+  var controlbodega = JSON.stringify(controlbodega);
+  return $http({method:'POST', url:'http://localhost:3000/controlbodega/insertarControlBodega/controlbodega', data: controlbodega});
 
   }
   		
@@ -60,11 +59,11 @@ BioFrut.service('insertarGuiaModels', function($http){
 });
 
 // eliminar un usuario en especifico del sistema hacia el API RESTful
-BioFrut.service('eliminarGuiaModels', function($http){
+BioFrut.service('eliminarControlBodegaModels', function($http){
 
-  this.obtenerGuia = function(){
+  this.obtenerControlBodega = function(){
 
-  		return $http({method:'DELETE', url:'http://localhost:3000/guia/eliminarGuia/1'});
+  		return $http({method:'DELETE', url:'http://localhost:3000/controlbodega/eliminarControlBodega'});
   }
 
 });

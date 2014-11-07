@@ -4,24 +4,40 @@
 	<meta charset="UTF-8">
 	<title>BioFrut</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
+	<style type="text/css">
+	#menu {
+		/*border:1px solid #000;*/
+		width: 800px;
+		margin: 0 auto;
+	}
+
+	#page{
+		/*border:1px solid #ccc;*/
+		width: 800px;
+		margin: 0 auto;
+	}
+	</style>
 </head>
 
 <body>
 
-<div ng-view></div>
-<div class="text-center">
+<div >
+	<div id="menu" class="text-center">
 
- <h1>Menu Bodeguero</h1>
- <br>
- <br>
-	 <ul class="nav nav-tabs nav-stacked">
-	  <li><a href="#/nuevoControl"><h3>Ingresar Control de Calidad</h3></a></li>
-	  <li><a href="#/nuevoControlBodega"><h3>Ingresar Control de Bodega</h3></a></li>
-	   <li><a href="#/nuevaZona"><h3>Ingresar Zona</h3></a></li>
-	 </ul>
+	 <h1>Menu Bodeguero</h1>
+	 <br>
+	 <br>
+		 <ul class="nav nav-tabs nav-stacked">
+		  <li id="control"><a href="#/nuevoControl"><h3>Ingresar Control de Calidad</h3></a></li>
+		  <li id="bodega"><a href="#/nuevoControlBodega"><h3>Ingresar Control de Bodega</h3></a></li>
+		  <li id="zona"><a href="#/nuevaZona"><h3>Ingresar Zona</h3></a></li>
+		  <li><a href="/logout"><h3>Cerrar Sesion</h3></a></li>
+		 </ul>
 
+	</div>
 </div>
-
+<div id="page" ng-view></div>
  
 <script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
@@ -38,5 +54,7 @@
 
 <script type="text/javascript" src="../controllers/ZonaControllers.js"></script>
 <script type="text/javascript" src="../models/ZonaModels.js"></script>
+
+
 </body>
 </html>

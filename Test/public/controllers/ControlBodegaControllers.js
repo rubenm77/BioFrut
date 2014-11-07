@@ -1,11 +1,9 @@
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo todos los usuarios del sistema
-BioFrut.controller('todosLosPalesControllers', function($scope, todosLosPalesModels){
+BioFrut.controller('todosLosControlesBodegaControllers', function($scope, todosLosControlesBodegaModels){
 
-	todosLosPalesModels.todosLosPales().success(function(data){
-		$scope.todosLosPales = data;
+	todosLosControlesBodegaModels.todosLosControlesBodegas().success(function(data){
+		$scope.todosLosControlesBodegas = data;
 	}); 
-
-	
 
 });
 
@@ -20,40 +18,40 @@ BioFrut.controller('todosLosPalesControllers', function($scope, todosLosPalesMod
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-BioFrut.controller('obtenerPaleControllers', function($scope, obtenerPaleModels) {
+BioFrut.controller('obtenerControlBodegaControllers', function($scope, obtenerControlBodegaModels) {
 
-	obtenerPaleModels.obtenerPale().success(function(data){
-		$scope.obtenerPale = data;
+	obtenerControlBodegaModels.obtenerControlBodega().success(function(data){
+		$scope.obtenerControlBodega = data;
 	});
 
 });
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, actualizando un solo usuario del sistema
-BioFrut.controller('actualizarPaleControllers', function($scope, actualizarPaleModels) {
+BioFrut.controller('actualizarControlBodegaControllers', function($scope, actualizarControlBodegaModels) {
 
-	actualizarPaleModels.actualizarPale().success(function(data){
-		$scope.actualizarPale = data;
+	actualizarControlBodegaModels.actualizarControlBodega().success(function(data){
+		$scope.actualizarControlBodega = data;
 	});
 
 });
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, insertando un solo usuario del sistema
-BioFrut.controller('insertarPaleControllers', function($scope, insertarPaleModels) {
+BioFrut.controller('insertarControlBodegaControllers', function($scope, insertarControlBodegaModels) {
 	// integracion de patron observer
 	$scope.$watch(function(){
 
 		// boton almacenar nuevo usuario
-		$scope.obtenerDatosPale = function(pale){
+		$scope.obtenerControlBodega = function(controlbodega){
 
-			insertarPaleModels.insertarPale(pale);
+			insertarControlBodegaModels.insertarControlBodega(controlbodega);
 					 // JSON.stringify(angular.copy(usuario));
 				// console.log(JSON.stringify(angular.copy(usuario)));
 		}
 
 		// boton limpiar los campos del formulario nuevo usuario
-		$scope.limpiarDatosPale= function(pale){
+		$scope.limpiarDatosControlBodega = function(controlbodega){
 
 		$scope.pale = {};
 
@@ -61,18 +59,15 @@ BioFrut.controller('insertarPaleControllers', function($scope, insertarPaleModel
 
 	});
 
-	// insertarUsuarioModels.insertarUsuario().success(function(data){
-	// 	$scope.insertarUsuario = data;
-	// });
 
 });
 
 
  // Gestiona la comunicacion entre el API RESTful y los Views, eliminando un solo usuario del sistema
-BioFrut.controller('eliminarPaleControllers', function($scope,  eliminarPaleModels) {
+BioFrut.controller('eliminarControlBodegaControllers', function($scope,  eliminarControlBodegaModels) {
 
-	eliminarPaleModels.eliminarPale().success(function(data){
-		$scope.obtenerPale = data;
+	eliminarControlBodegaModels.eliminarControlBodega().success(function(data){
+		$scope.eliminarControlBodega = data;
 	});
 
 });
