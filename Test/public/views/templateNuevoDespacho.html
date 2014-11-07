@@ -1,12 +1,14 @@
-<div class="container" ng-controller="insertarBodegaControllers">
+<div class="container" ng-controller="insertarDespachoControllers">
 
 			
 				<form role="form-inline">
-			
+
+				 <div class=row>
+
 					<div class="span3">
 
 					 	<div class="form-group">
-					 		<label for="">cod. Guia : </label>
+					 		<label for="">Cod. Despacho: </label>
 					 		<input type="number" class="form-group" placeholder="guia" ng-model="guia.codigo">
 					 	</div>
 
@@ -14,32 +16,40 @@
 
 				 <div class="span3">
 					 	<div class="form-group">
-							<label for="">Cantidad de Bandejas :</label>
+							<label for="">Fecha:</label>
 						 	<input type="text" class="form-group" placeholder="bandeja" ng-model="guia.bandeja">
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
-						 	<label for="">Fecha :</label>
+						 	<label for="">Hora :</label>
 						 	<input type="text" class="form-group" placeholder="fecha" ng-model="guia.fecha">
 					 	</div>
 				 </div>
 
 				 <div class="span3">
 					 	<div class="form-group">
-						 	<label for="">Hora :</label>
+						 	<label for="">Cod. Tipo de producto:</label>
 						 	<input type="text" class="form-group" placeholder="hora" ng-model="guia.hora">
 					 	</div>
 				 </div>
-
-				  <div>
+                </div>
+                 <div class="row">
+				  <div class="span3">
 					 	<div class="form-group">
-						 	<label for="">Cod. Tipo de producto :</label>
+						 	<label for="">Cod. Control :</label>
 						 	<input type="text" class="form-group" placeholder="tproducto" ng-model="guia.tproducto">
 					 	</div>
 				 </div>
 
+				   <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Cuadrilla :</label>
+						 	<input type="text" class="form-group" placeholder="tproducto" ng-model="guia.tproducto">
+					 	</div>
+				 </div>
+                </div>
 				</form>	
 
 				<br>

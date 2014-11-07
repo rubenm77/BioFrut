@@ -16,9 +16,9 @@ conexion.query('USE gestion');
 
 // Variables que almacenan las operaciones de insertar, obtener, borrar y actualizar
 
-exports.todasLasGuias = function(req, res){
+exports.todosLosEstadosProducto = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM guia ;", function(err, rows){
+	conexion.query("SELECT * FROM estadoproducto ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(JSON.stringify(rows));
 	});
@@ -33,33 +33,33 @@ exports.todasLasGuias = function(req, res){
 // };
  
  
-exports.obtenerGuia = function(req, res){
+exports.obtenerEstadoProducto = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM guia WHERE IdGuia="+req.params.codigo+" ;", function(err, rows){
+	conexion.query("SELECT * FROM estadoproducto WHERE IdStock="+req.params.codigo+" ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.insertarGuia = function(req, res){
+exports.insertarEstadoProducto = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO guia SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO estadoproducto SET ? ;",req.body, function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.actualizarGuia = function(req, res){
+exports.actualizarEstadoProducto = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("UPDATE guia SET CantidadBandeja='"+req.body.cantidadBandeja+"', Fecha='"+req.body.fecha+"'', Hora='"+req.body.hora+"'' WHERE IdGuia="+req.body.idGuia+" ;", function(err, rows){
+	conexion.query("UPDATE estadoproducto SET CantidadPales='"+req.body.cantidadPales+"', IdBodega='"+req.body.idBodega+"'' WHERE IdStock="+req.body.idStock+" ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.eliminarGuia = function(req, res){
+exports.eliminarEstadoProducto = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("DELETE FROM guia WHERE IdGuia="+req.body.codigo+";", function(err, rows){
+	conexion.query("DELETE FROM eliminarEstadoProducto WHERE IdStock="+req.body.codigo+";", function(err, rows){
 		if(err) throw console.log(err);s
 		res.send(rows);
 	});

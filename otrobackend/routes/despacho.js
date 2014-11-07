@@ -16,9 +16,9 @@ conexion.query('USE gestion');
 
 // Variables que almacenan las operaciones de insertar, obtener, borrar y actualizar
 
-exports.todosLosPales = function(req, res){
+exports.todosLosDespachos = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM pale ;", function(err, rows){
+	conexion.query("SELECT * FROM despacho ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(JSON.stringify(rows));
 	});
@@ -33,33 +33,33 @@ exports.todosLosPales = function(req, res){
 // };
  
  
-exports.obtenerPale = function(req, res){
+exports.obtenerDespacho= function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM pale WHERE IdPale="+req.params.codigo+" ;", function(err, rows){
+	conexion.query("SELECT * FROM despacho WHERE IdDespacho="+req.params.codigo+" ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.insertarPale = function(req, res){
+exports.insertarDespacho = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO pale SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO despacho SET ? ;",req.body, function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.actualizarPale = function(req, res){
+exports.actualizarDespacho = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("UPDATE pale SET CantidadBandeja='"+req.body.cantidadBandeja+"', Fecha='"+req.body.fecha+"'', hora='"+req.body.hora+"'', IdGuia='"+req.body.idGuia+"'', IdStock='"+req.body.idStock+"'', IdControl='"+req.body.idControl+"'' WHERE IdPale="+req.body.idPale+" ;", function(err, rows){
+	conexion.query("UPDATE despacho SET CantidadBandeja='"+req.body.cantidadBandeja+"', Fecha='"+req.body.fecha+"'', hora='"+req.body.hora+"'', IdGuia='"+req.body.idGuia+"'', IdStock='"+req.body.idStock+"'', IdControl='"+req.body.idControl+"'' WHERE IdPale="+req.body.idPale+" ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.eliminarPale = function(req, res){
+exports.eliminarDespacho = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("DELETE FROM pale WHERE IdPale="+req.body.codigo+";", function(err, rows){
+	conexion.query("DELETE FROM despacho WHERE IdPale="+req.body.codigo+";", function(err, rows){
 		if(err) throw console.log(err);s
 		res.send(rows);
 	});

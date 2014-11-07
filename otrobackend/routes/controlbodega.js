@@ -16,9 +16,9 @@ conexion.query('USE gestion');
 
 // Variables que almacenan las operaciones de insertar, obtener, borrar y actualizar
 
-exports.todasLasMermas = function(req, res){
+exports.todosLosControlesBodega = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM merma ;", function(err, rows){
+	conexion.query("SELECT * FROM controlbodega ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(JSON.stringify(rows));
 	});
@@ -33,33 +33,33 @@ exports.todasLasMermas = function(req, res){
 // };
  
  
-exports.obtenerMerma = function(req, res){
+exports.obtenerControlBodega = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM merma WHERE IdMerma="+req.params.codigo+" ;", function(err, rows){
+	conexion.query("SELECT * FROM controlbodega WHERE IdControlBodega="+req.params.codigo+" ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.insertarMerma = function(req, res){
+exports.insertarControlBodega = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO merma SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO controlbodega SET ? ;",req.body, function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.actualizarMerma = function(req, res){
+exports.actualizarControlBodega = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("UPDATE merma SET CantidadBandeja='"+req.body.cantidadBandeja+"', Estado='"+req.body.estado+"'' WHERE IdMerma="+req.body.idMerma+" ;", function(err, rows){
+	conexion.query("UPDATE controlbodega SET CantidadPale='"+req.body.cantidadPale+"', Fecha='"+req.body.fecha+"'', Hora='"+req.body.hora+"'' WHERE IdGuia="+req.body.idGuia+" ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
 };
 
-exports.eliminarMerma = function(req, res){
+exports.eliminarControlBodega = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("DELETE FROM merma WHERE IdMerma="+req.body.codigo+";", function(err, rows){
+	conexion.query("DELETE FROM controlbodega WHERE IdControlBodega="+req.body.codigo+";", function(err, rows){
 		if(err) throw console.log(err);s
 		res.send(rows);
 	});
