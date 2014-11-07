@@ -226,7 +226,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla fundo
 	app.get('/fundo/todosLosFundos', fundo.todosLosFundos);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/fundo/obtenerNombreFundos', fundo.obtenerNombreFundos);
 
 	app.get('/fundo/obtenerFundo/:codigo', fundo.obtenerFundo);
 

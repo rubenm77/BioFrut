@@ -9,16 +9,16 @@ BioFrut.service('todosLosFundosModels', function($http){
 
 });
 
-// rescata todos los usuarios del sistema con el nombre del perfil y el cargo desde el API RESTful
-// BioFrut.service('obtenerDatosUsuariosModels', function($http){
 
-//   this.obtenerDatosUsuarios = function(){
+BioFrut.service('obtenerNombreFundosModels', function($http){
 
-//     return $http({method:'GET',url:'http://localhost:3000/usuario/obtenerDatosUsuarios'});
+  this.obtenerNombreFundos = function(){
+
+    return $http({method:'GET',url:'http://localhost:3000/fundo/obtenerNombreFundos'});
         
-//     }  
+    }  
 
-// });
+});
 
 
 // obtiene un usuario en especifico del sistema desde el API RESTful
@@ -51,7 +51,7 @@ BioFrut.service('insertarFundoModels', function($http){
   this.insertarFundo = function(fundo){
     
   var fundo = JSON.stringify(fundo);
-  console.log(fundo);
+  
   return $http({method:'POST', url:'http://localhost:3000/fundo/insertarFundo/fundo', data: fundo});
 
   }
