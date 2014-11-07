@@ -8,16 +8,17 @@
 
 <body>
 
+<div ng-view></div>
 <div class="text-center">
 
  <h1>Menu Bodeguero</h1>
  <br>
- <BR>
- <ul class="nav nav-tabs nav-stacked">
-  <li><a href="#/nuevoControl"><h3>Ingresar Control de Calidad</h3></a></li>
-  <li><a href="#/nuevoControlBodega"><h3>Ingresar Control de Bodega</h3></a></li>
-   <li><a href="#/nuevaZona"><h3>Ingresar Zona</h3></a></li>
- </ul>
+ <br>
+	 <ul class="nav nav-tabs nav-stacked">
+	  <li><a href="#/nuevoControl"><h3>Ingresar Control de Calidad</h3></a></li>
+	  <li><a href="#/nuevoControlBodega"><h3>Ingresar Control de Bodega</h3></a></li>
+	   <li><a href="#/nuevaZona"><h3>Ingresar Zona</h3></a></li>
+	 </ul>
 
 </div>
 
@@ -28,5 +29,14 @@
 <script type="text/javascript" src="../js/angular.js"></script>
 <script type="text/javascript" src="../js/angular-route.js"></script>
 <script type="text/javascript" src="../routes/BioFrutRoutes.js"></script>
+
+<script type="text/javascript" src="../controllers/ControlBodegaControllers.js"></script>
+<script type="text/javascript" src="../models/ControlBodegaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/ControlControllers.js"></script>
+<script type="text/javascript" src="../models/ControlModels.js"></script>
+
+<script type="text/javascript" src="../controllers/ZonaControllers.js"></script>
+<script type="text/javascript" src="../models/ZonaModels.js"></script>
 </body>
 </html>

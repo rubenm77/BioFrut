@@ -48,12 +48,13 @@ module.exports = function(app, passport) {
 
 
 	app.get('/profile', function(req, res) {
-		// console.log(req.user.Login); expone los datos del usuario
-		if(req.get('host') === 'localhost:3000'){
+		console.log(req.get('host')); 
+		if(req.get('host') === 'localhost:3000' || req.get('host') === '192.168.173.1:3000' ){
 
 			res.redirect('./views/profile.html');
 
-		}else if(req.get('host') === 'localhost:5000'){
+
+		}else if(req.get('host') === 'localhost:5000' || req.get('host') === '192.168.173.1:5000'){
 
 			switch(req.user.cargo){
 				case 'Administrador': res.redirect('./views/Admin.html');
