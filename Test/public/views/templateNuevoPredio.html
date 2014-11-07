@@ -22,7 +22,10 @@
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Fundo :</label>
-						 	<input type="text" class="form-group" placeholder="fundo" ng-model="predio.fundo">
+						 	<select ng-model="predio.IdCiudad"  ng-controller="obtenerNombreFundosControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreFundos">{{nombre.Nombre}}</option>
+							</select>
 					 	</div>
 				 </div>
 

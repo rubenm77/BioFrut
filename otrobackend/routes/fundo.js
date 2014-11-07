@@ -18,19 +18,19 @@ conexion.query('USE gestion');
 
 exports.todosLosFundos = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM fundo ;", function(err, rows){
+	conexion.query("SELECT fundo.IdFundo, fundo.Nombre, fundo.Direccion, ciudad.Nombre as 'Ciudad' FROM fundo, ciudad WHERE fundo.IdCiudad=ciudad.IdCiudad;", function(err, rows){
 		if(err) throw console.log(err);
-		res.send(JSON.stringify(rows));
+		res.send(rows);
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombreFundos = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT Nombre FROM fundo;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerFundo = function(req, res){
@@ -43,7 +43,7 @@ exports.obtenerFundo = function(req, res){
 
 exports.insertarFundo = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO fundo SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO fundo VALUES ('"+req.body.IdFundo+"', '"+req.body.Nombre+"', '"+req.body.Direccion+"', (SELECT IdCiudad FROM ciudad WHERE Nombre='"+req.body.IdCiudad+"'));",req.body, function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

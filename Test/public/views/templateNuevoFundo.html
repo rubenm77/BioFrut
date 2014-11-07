@@ -7,7 +7,7 @@
 
 					 	<div class="form-group">
 					 		<label for="">cod. Fundo : </label>
-					 		<input type="number" class="form-group" placeholder="fundo" ng-model="fundo.codigo">
+					 		<input type="number" class="form-group" placeholder="fundo" ng-model="fundo.IdFundo">
 					 	</div>
 
 					</div>
@@ -15,21 +15,24 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="nombre" ng-model="funfo.nombre">
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="fundo.Nombre">
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Direccion :</label>
-						 	<input type="text" class="form-group" placeholder="direccion" ng-model="fundo.direccion">
+						 	<input type="text" class="form-group" placeholder="direccion" ng-model="fundo.Direccion">
 					 	</div>
 				 </div>
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">cod. Ciudad :</label>
-						 	<input type="text" class="form-group" placeholder="ciudad" ng-model="fundo.ciudad">
+						 <select ng-model="fundo.IdCiudad"  ng-controller="obtenerNombreCiudadesControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreCiudades">{{nombre.Nombre}}</option>
+							</select>
 					 	</div>
 				 </div>
 
