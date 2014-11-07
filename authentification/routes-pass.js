@@ -237,17 +237,18 @@ module.exports = function(app, passport) {
 
 
 	// rutas de las solicitudes a la tabla guia
-	app.get('/guia/todasLasGuias', guia.todasLasGuias);
+	app.get('/controlbodega/todosLosControlesBodega',controlbodega.todosLosControlesBodega);
 
 	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
 
-	app.get('/guia/obtenerGuia/:codigo', guia.obtenerGuia);
+	app.get('/controlbodega/obtenerControlBodega/:codigo', controlbodega.obtenerControlBodega);
 
-	app.post('/guia/insertarGuia/guia', guia.insertarGuia);
+	app.post('/controlbodega/insertarControlBodega/controlbodega', controlbodega.insertarControlBodega);
 
-	app.put('/guia/actualizarGuia', guia.actualizarGuia);
+	app.put('/controlbodega/actualizarControlBodega',controlbodega.actualizarControlBodega);
 
-	app.delete('/guia/eliminarGuia', guia.eliminarGuia);
+	app.delete('/controlbodega/eliminarControlBodega', controlbodega.eliminarControlBodega);
+
 
 
 	// rutas de las solicitudes a la tabla huerto
@@ -265,17 +266,17 @@ module.exports = function(app, passport) {
 
 
 	// rutas de las solicitudes a la tabla merma
-	app.get('/merma/todasLasMermas', merma.todasLasMermas);
+	app.get('/despacho/todosLosDespachos', despacho.todosLosDespachos);
 
 	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
 
-	app.get('/merma/obtenerMerma/:codigo', merma.obtenerMerma);
+	app.get('/despacho/obtenerDespacho:codigo', despacho.obtenerDespacho);
 
-	app.post('/merma/insertarMerma/merma', merma.insertarMerma);
+	app.post('/despacho/insertarDespacho/despacho', despacho.insertarDespacho);
 
-	app.put('/merma/actualizarMerma', merma.actualizarMerma);
+	app.put('/despacho/actualizarDespacho' , despacho.actualizarDespacho);
 
-	app.delete('/merma/eliminarMerma', merma.eliminarMerma);
+	app.delete('/despacho/eliminarDespacho', despacho.eliminarDespacho);
 
 
 	// rutas de las solicitudes a la tabla pais
@@ -293,17 +294,18 @@ module.exports = function(app, passport) {
 
 
 	// rutas de las solicitudes a la tabla pale
-	app.get('/pale/todosLosPales', pale.todosLosPales);
+	app.get('/estadoproducto/todosLosEstadosProducto', estadoproducto.todosLosEstadosProducto);
 
 	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
 
-	app.get('/pale/obtenerPale/:codigo', pale.obtenerPale);
+	app.get('/estadoproducto/obtenerEstadoProducto/:codigo', estadoproducto.obtenerEstadoProducto);
 
-	app.post('/pale/insertarPale/pale', pale.insertarPale);
+	app.post('/estadoproducto/insertarEstadoProducto/estadoproducto', estadoproducto.insertarEstadoProducto);
 
-	app.put('/pale/actualizarPale' , pale.actualizarPale);
+	app.put('/estadoproducto/actualizarEstadoProducto', estadoproducto.actualizarEstadoProducto);
 
-	app.delete('/pale/eliminarPale', pale.eliminarPale);
+	app.delete('/estadoproducto/eliminarEstadoProducto', estadoproducto.eliminarEstadoProducto);
+
 
 
 	// rutas de las solicitudes a la tabla predio
@@ -346,21 +348,6 @@ module.exports = function(app, passport) {
 	app.put('/region/actualizarRegion', region.actualizarRegion);
 
 	app.delete('/region/eliminarRegion', region.eliminarRegion);
-
-
-	// rutas de las solicitudes a la tabla stock
-	app.get('/stock/todosLosStocks', stock.todosLosStocks);
-
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
-
-	app.get('/stock/obtenerStock/:codigo', stock.obtenerStock);
-
-	app.post('/stock/insertarStock/stock', stock.insertarStock);
-
-	app.put('/stock/actualizarStock', stock.actualizarStock);
-
-	app.delete('/stock/eliminarStock', stock.eliminarStock);
-
 
 	// rutas de las solicitudes a la tabla tarjeta trabajador
 	app.get('/tarjeta/todasLasTarjetas', tarjeta.todasLasTarjetas);
