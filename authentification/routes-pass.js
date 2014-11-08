@@ -68,6 +68,14 @@ module.exports = function(app, passport) {
 				case 'Bodeguero':res.redirect('./views/templateMenuBodega.html'); 
 
 				 break;
+
+				case 'Gerente':res.redirect('./views/templateMenuGerente.html');
+
+				 break;
+
+				 default:res.redirect();
+
+				 break;
 			}
 			
 
