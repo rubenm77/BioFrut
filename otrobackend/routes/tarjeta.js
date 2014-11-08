@@ -18,7 +18,7 @@ conexion.query('USE gestion');
 
 exports.todasLasTarjetas = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM tarjetatrabajador ;", function(err, rows){
+	conexion.query("SELECT * FROM tarjetatrabajador;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

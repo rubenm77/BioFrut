@@ -18,19 +18,19 @@ conexion.query('USE gestion');
 
 exports.todasLasCuadrillas = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM cuadrilla ;", function(err, rows){
+	conexion.query("SELECT cuadrilla.IdCuadrilla, cuadrilla.Nombre, tarjeta.IdTarjeta FROM cuadrilla, tarjeta WHERE cuadrilla.IdTarjeta=tarjeta.IdTarjeta;", function(err, rows){
 		if(err) throw console.log(err);
-		res.send(JSON.stringify(rows));
+		res.send(rows);
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombreCuadrillas = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT Nombre FROM cuadrilla;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerCuadrilla = function(req, res){
@@ -43,7 +43,7 @@ exports.obtenerCuadrilla = function(req, res){
 
 exports.insertarCuadrilla = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO cuadrilla SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO cuadrilla VALUES ('"+req.body.IdCuadrilla+"', '"+req.body.Nombre+"','"+req.body.IdTarjeta+"');", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
@@ -51,7 +51,7 @@ exports.insertarCuadrilla = function(req, res){
 
 exports.actualizarCuadrilla = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("UPDATE cuadrilla SET Nombre='"+req.body.nombre+"' WHERE IdCuadrilla="+req.body.idCuadrilla+" ;", function(err, rows){
+	conexion.query("UPDATE cuadrilla SET Nombre='"+req.body.nombre+"' WHERE IdCuadrilla="+req.body.IdCuadrilla+" ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

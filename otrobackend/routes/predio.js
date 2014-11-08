@@ -18,7 +18,7 @@ conexion.query('USE gestion');
 
 exports.todosLosPredios = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT predio.IdPredio, predio.Nombre, fundo.IdFundo FROM predio, fundo WHERE predio.IdFundo=fundo.IdFundo;", function(err, rows){
+	conexion.query("SELECT predio.IdPredio, predio.Nombre, fundo.Nombre as 'Fundo' FROM predio, fundo WHERE predio.IdFundo=fundo.IdFundo;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

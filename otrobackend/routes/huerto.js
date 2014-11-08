@@ -18,19 +18,19 @@ conexion.query('USE gestion');
 
 exports.todosLosHuertos = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM huerto ;", function(err, rows){
+	conexion.query("SELECT huerto.IdHuerto, huerto.Nombre, predio.Nombre as 'Predio' FROM huerto, predio WHERE huerto.IdPredio=predio.IdPredio;", function(err, rows){
 		if(err) throw console.log(err);
-		res.send(JSON.stringify(rows));
+		res.send(rows);
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombreHuertos = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT Nombre FROM huerto;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerHuerto = function(req, res){
@@ -43,7 +43,7 @@ exports.obtenerHuerto = function(req, res){
 
 exports.insertarHuerto = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO huerto SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO huerto VALUES ('"+req.body.IdHuerto+"', '"+req.body.Nombre+"', (SELECT IdPredio FROM predio WHERE Nombre='"+req.body.IdPredio+"'));",req.body, function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

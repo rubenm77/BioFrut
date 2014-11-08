@@ -9,14 +9,14 @@ BioFrut.controller('todosLosHuertosControllers', function($scope, todosLosHuerto
 
 });
 
-// // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-// BioFrut.controller('obtenerDatosUsuariosControllers', function($scope, obtenerDatosUsuariosModels) {
+// Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
+BioFrut.controller('obtenerNombreHuertosControllers', function($scope, obtenerNombreHuertosModels) {
 
-// 	obtenerDatosUsuariosModels.obtenerDatosUsuarios().success(function(data){
-// 		$scope.obtenerDatosUsuarios = data;
-// 	});
+	obtenerNombreHuertosModels.obtenerNombreHuertos().success(function(data){
+		$scope.nombreHuertos = data;
+	});
 
-// });
+});
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema

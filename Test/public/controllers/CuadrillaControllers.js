@@ -48,8 +48,7 @@ BioFrut.controller('insertarCuadrillaControllers', function($scope, insertarCuad
 		$scope.obtenerDatosCuadrilla= function(cuadrilla){
 
 			insertarCuadrillaModels.insertarCuadrilla(cuadrilla);
-					 // JSON.stringify(angular.copy(usuario));
-				// console.log(JSON.stringify(angular.copy(usuario)));
+				
 		}
 
 		// boton limpiar los campos del formulario nuevo usuario

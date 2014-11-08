@@ -255,7 +255,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla huerto
 	app.get('/huerto/todosLosHuertos', huerto.todosLosHuertos);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/huerto/obtenerNombreHuertos', huerto.obtenerNombreHuertos);
 
 	app.get('/huerto/obtenerHuerto/:codigo', huerto.obtenerHuerto);
 

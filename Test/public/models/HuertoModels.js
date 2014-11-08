@@ -10,15 +10,15 @@ BioFrut.service('todosLosHuertosModels', function($http){
 });
 
 // rescata todos los usuarios del sistema con el nombre del perfil y el cargo desde el API RESTful
-// BioFrut.service('obtenerDatosUsuariosModels', function($http){
+BioFrut.service('obtenerNombreHuertosModels', function($http){
 
-//   this.obtenerDatosUsuarios = function(){
+  this.obtenerNombreHuertos = function(){
 
-//     return $http({method:'GET',url:'http://localhost:3000/usuario/obtenerDatosUsuarios'});
+    return $http({method:'GET',url:'http://localhost:3000/huerto/obtenerNombreHuertos'});
         
-//     }  
+    }  
 
-// });
+});
 
 
 // obtiene un usuario en especifico del sistema desde el API RESTful
@@ -52,7 +52,7 @@ BioFrut.service('insertarHuertoModels', function($http){
     
   var huerto = JSON.stringify(huerto);
   console.log(huerto);
-  return $http({method:'POST', url:'http://localhost:3000/huerto/insertarHuerto/fundo', data: huerto});
+  return $http({method:'POST', url:'http://localhost:3000/huerto/insertarHuerto/huerto', data: huerto});
 
   }
   		
