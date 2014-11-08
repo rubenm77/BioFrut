@@ -1,8 +1,8 @@
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo todos los usuarios del sistema
-BioFrut.controller('todasLasGuiasControllers', function($scope, todasLasGuiasModels){
+BioFrut.controller('todosLosDespachosControllers', function($scope, todosLosDespachosModels){
 
-	todasLasGuiasModels.todasLasGuias().success(function(data){
-		$scope.todasLasGuias= data;
+	todosLosDespachosModels.todosLosDespachos().success(function(data){
+		$scope.todosLosDespachos= data;
 	}); 
 
 	
@@ -20,42 +20,42 @@ BioFrut.controller('todasLasGuiasControllers', function($scope, todasLasGuiasMod
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-BioFrut.controller('obtenerGuiaControllers', function($scope, obtenerGuiaModels) {
+BioFrut.controller('obtenerDespachoControllers', function($scope, obtenerDespachoModels) {
 
-	obtenerGuiaModels.obtenerGuia().success(function(data){
-		$scope.obtenerGuia= data;
+	obtenerDespachoModels.obtenerDespacho().success(function(data){
+		$scope.obtenerDespacho= data;
 	});
 
 });
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, actualizando un solo usuario del sistema
-BioFrut.controller('actualizarGuiaControllers', function($scope, actualizarGuiaModels) {
+BioFrut.controller('actualizarDespachoControllers', function($scope, actualizarDespachoModels) {
 
-	actualizarGuiaModels.actualizarGuia().success(function(data){
-		$scope.actualizarGuia = data;
+	actualizarDespachoModels.actualizarDespacho().success(function(data){
+		$scope.actualizarDespacho = data;
 	});
 
 });
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, insertando un solo usuario del sistema
-BioFrut.controller('insertarGuiaControllers', function($scope, insertarGuiaModels) {
+BioFrut.controller('insertarDespachoControllers', function($scope, insertarDespachoModels) {
 	// integracion de patron observer
 	$scope.$watch(function(){
 
 		// boton almacenar nuevo usuario
-		$scope.obtenerDatosGuia= function(guia){
+		$scope.obtenerDatosDespacho= function(despacho){
 
-			insertarGuiaModels.insertarGuia(guia);
+			insertarDespachoModels.insertarDespacho(despacho);
 					 // JSON.stringify(angular.copy(usuario));
 				// console.log(JSON.stringify(angular.copy(usuario)));
 		}
 
 		// boton limpiar los campos del formulario nuevo usuario
-		$scope.limpiarDatosGuia = function(guia){
+		$scope.limpiarDatosDespacho = function(despacho){
 
-		$scope.guia = {};
+		$scope.despacho = {};
 
 		}
 
@@ -69,10 +69,10 @@ BioFrut.controller('insertarGuiaControllers', function($scope, insertarGuiaModel
 
 
  // Gestiona la comunicacion entre el API RESTful y los Views, eliminando un solo usuario del sistema
-BioFrut.controller('eliminarGuiaControllers', function($scope,  eliminarGuiaModels) {
+BioFrut.controller('eliminarDespachoControllers', function($scope,  eliminarDespachoModels) {
 
-	eliminarGuiaModels.eliminarGuia().success(function(data){
-		$scope.obtenerGuia = data;
+	eliminarDespachoModels.eliminarDespacho().success(function(data){
+		$scope.obtenerDespacho = data;
 	});
 
 });

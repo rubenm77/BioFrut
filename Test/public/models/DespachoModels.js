@@ -1,9 +1,9 @@
 // rescata todos los usuarios del sistema desde el API RESTful
-BioFrut.service('todosLosPalesModels', function($http){
+BioFrut.service('todosLosDespachosModels', function($http){
 
-  this.todosLosPales= function(){
+  this.todosLosDespachos= function(){
 
-		return $http({method:'GET',url:'http://localhost:3000/pale/todosLosPales'});
+		return $http({method:'GET',url:'http://localhost:3000/despacho/todosLosDespachos'});
   			
     }  
 
@@ -22,11 +22,11 @@ BioFrut.service('todosLosPalesModels', function($http){
 
 
 // obtiene un usuario en especifico del sistema desde el API RESTful
-BioFrut.service('obtenerPaleModels', function($http){
+BioFrut.service('obtenerDespachoModels', function($http){
 
-  this.obtenerPale = function(){
+  this.obtenerDespacho = function(){
 
-  		return $http({method:'GET', url:'http://localhost:3000/pale/obtenerDatosPale'}).success(function(data){
+  		return $http({method:'GET', url:'http://localhost:3000/despacho/obtenerDatosDespacho'}).success(function(data){
   		});
   }
 
@@ -34,11 +34,11 @@ BioFrut.service('obtenerPaleModels', function($http){
 
 
 // actualizar un usuario en especifico del sistema hacia el API RESTful
-BioFrut.service('actualizarPaleModels', function($http){
+BioFrut.service('actualizarDespachoModels', function($http){
 
-  this.actualizarPale = function(){
+  this.actualizarDespacho = function(){
 
-  		return $http({method:'PUT', url:'http://localhost:3000/pale/actualizarPale/1'}).success(function(data){
+  		return $http({method:'PUT', url:'http://localhost:3000/despacho/actualizarDespacho/1'}).success(function(data){
   		});
   }
 
@@ -46,13 +46,13 @@ BioFrut.service('actualizarPaleModels', function($http){
 
 
 // insertar un usuario en especifico del sistema hacia el API RESTful
-BioFrut.service('insertarPaleModels', function($http){
+BioFrut.service('insertarDespachoModels', function($http){
 
-  this.insertarPale = function(pale){
+  this.insertarDespacho = function(despacho){
     
-  var pale = JSON.stringify(pale);
-  console.log(pale);
-  return $http({method:'POST', url:'http://localhost:3000/pale/insertarPale/pale', data: pale});
+  var despacho = JSON.stringify(despacho);
+  console.log(despacho);
+  return $http({method:'POST', url:'http://localhost:3000/despacho/insertarDespacho/despacho', data: despacho});
 
   }
   		
@@ -60,11 +60,11 @@ BioFrut.service('insertarPaleModels', function($http){
 });
 
 // eliminar un usuario en especifico del sistema hacia el API RESTful
-BioFrut.service('eliminarPaleModels', function($http){
+BioFrut.service('eliminarDespachoModels', function($http){
 
-  this.obtenerPale = function(){
+  this.obtenerDespacho = function(){
 
-  		return $http({method:'DELETE', url:'http://localhost:3000/pale/eliminarPale/1'});
+  		return $http({method:'DELETE', url:'http://localhost:3000/despacho/eliminarDespacho/1'});
   }
 
 });
