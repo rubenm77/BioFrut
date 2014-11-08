@@ -20,21 +20,19 @@
     </div>
 
        <div>
-
-          <label for="">Ingrese su cuadrilla:</label>
-            <select class="form-control input-xlarge">
-              <option>Mustard</option>
-              <option>Ketchup</option>
-              <option>Relish</option>
-           </select>
+            <label for="">Cuadrilla :</label>
+              <select ng-model="cuadrilla.Nombre"  ng-controller="obtenerNombreCuadrillasControllers" class="input-xlarge">
+                <option disabled="disabled">Seleccione una opcion</option>
+                <option  ng-repeat="nombre in nombreCuadrillas">{{nombre.Nombre}}</option>
+              </select>
+         
            <br>
            <br>
-        <label for="">Ingrese su huerto:</label>
-          <select class="selectpicker input-xlarge">
-            <option>Mustard</option>
-            <option>Ketchup</option>
-            <option>Relish</option>
-            </select>
+            <label for="">Ingrese su huerto:</label>
+             <select ng-model="huerto.Nombre"  ng-controller="obtenerNombreHuertosControllers" class="input-xlarge">
+                <option disabled="disabled">Seleccione una opcion</option>
+                <option  ng-repeat="nombre in nombreHuertos">{{nombre.Nombre}}</option>
+             </select>
            <br>
        </div>
       
@@ -42,7 +40,7 @@
          <br>
             <button type="button" class="btn btn-primary  btn-xxlarge">Enviar</button>
         </div>
-</div>
+    </div>
 
 <script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
@@ -50,5 +48,12 @@
 <script type="text/javascript" src="../js/angular.js"></script>
 <script type="text/javascript" src="../js/angular-route.js"></script>
 <script type="text/javascript" src="../routes/BioFrutRoutes.js"></script>
+
+<script type="text/javascript" src="../controllers/CuadrillaControllers.js"></script>
+<script type="text/javascript" src="../models/CuadrillaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/HuertoControllers.js"></script>
+<script type="text/javascript" src="../models/HuertoModels.js"></script>
+
 </body>
 </html>

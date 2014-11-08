@@ -13,7 +13,7 @@ BioFrut.controller('todasLasCuadrillasControllers', function($scope, todasLasCua
 BioFrut.controller('obtenerNombreCuadrillasControllers', function($scope, obtenerNombreCuadrillasModels) {
 
 	obtenerNombreCuadrillasModels.obtenerNombreCuadrillas().success(function(data){
-		$scope.obtenerNombreCuadrillasUsuarios = data;
+		$scope.nombreCuadrillas = data;
 	});
 
 });
