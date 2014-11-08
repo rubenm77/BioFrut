@@ -24,13 +24,13 @@ exports.todosLosAlmacenajes = function(req, res){
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombreAlmacenajes = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT Nombre FROM tipoalmacenaje;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerAlmacenaje = function(req, res){

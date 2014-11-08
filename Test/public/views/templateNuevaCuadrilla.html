@@ -29,7 +29,15 @@
 					 	</div>
 				 </div>
 
-
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Tarjet Identificacion :</label>
+						 	<select ng-model="cuadrilla.IdHuerto"  ng-controller="obtenerNombreHuertosControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreHuertos">{{nombre.Nombre}}</option>
+							</select>
+					 	</div>
+				 </div>
 
 				</form>	
 

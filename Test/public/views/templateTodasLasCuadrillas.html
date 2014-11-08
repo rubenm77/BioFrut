@@ -4,12 +4,12 @@
 		<div class="row">
 			
 			<table class="table table-bordered">
-				<tr><td>Codigo</td><td>Nombre</td><td>Trajeta</td><td>Trabajador</td><td>Acciones</td></tr>
+				<tr><td>Codigo</td><td>Nombre</td><td>Tarjeta</td><td>Huerto</td><td>Acciones</td></tr>
 				<tr ng-repeat=" cuadrilla in todasLasCuadrillas | filter:searchText">
 					<td>{{cuadrilla.IdCuadrilla}}</td>
 					<td>{{cuadrilla.Nombre}}</td>
-					<td>{{cuadrilla.Tarjeta}}</td>
-					<td>{{cuadrilla.Trabajador}}</td>
+					<td>{{cuadrilla.IdTarjeta}}</td>
+					<td>{{cuadrilla.Huerto}}</td>
 					<td>
 					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
 					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>

@@ -10,13 +10,13 @@ BioFrut.controller('todasLasCuadrillasControllers', function($scope, todasLasCua
 });
 
 // // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-// BioFrut.controller('obtenerDatosUsuariosControllers', function($scope, obtenerDatosUsuariosModels) {
+BioFrut.controller('obtenerNombreCuadrillasControllers', function($scope, obtenerNombreCuadrillasModels) {
 
-// 	obtenerDatosUsuariosModels.obtenerDatosUsuarios().success(function(data){
-// 		$scope.obtenerDatosUsuarios = data;
-// 	});
+	obtenerNombreCuadrillasModels.obtenerNombreCuadrillas().success(function(data){
+		$scope.obtenerNombreCuadrillasUsuarios = data;
+	});
 
-// });
+});
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
@@ -45,7 +45,7 @@ BioFrut.controller('insertarCuadrillaControllers', function($scope, insertarCuad
 	$scope.$watch(function(){
 
 		// boton almacenar nuevo usuario
-		$scope.obtenerDatosCuadrilla= function(cuadrilla){
+		$scope.obtenerDatosCuadrilla = function(cuadrilla){
 
 			insertarCuadrillaModels.insertarCuadrilla(cuadrilla);
 				

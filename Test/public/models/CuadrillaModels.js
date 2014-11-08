@@ -10,15 +10,15 @@ BioFrut.service('todasLasCuadrillasModels', function($http){
 });
 
 // rescata todos los usuarios del sistema con el nombre del perfil y el cargo desde el API RESTful
-// BioFrut.service('obtenerDatosUsuariosModels', function($http){
+BioFrut.service('obtenerNombreCuadrillasModels', function($http){
 
-//   this.obtenerDatosUsuarios = function(){
+  this.obtenerNombreCuadrillas = function(){
 
-//     return $http({method:'GET',url:'http://localhost:3000/usuario/obtenerDatosUsuarios'});
+    return $http({method:'GET',url:'http://localhost:3000/cuadrilla/obtenerNombreCuadrillas'});
         
-//     }  
+    }  
 
-// });
+});
 
 
 // obtiene un usuario en especifico del sistema desde el API RESTful

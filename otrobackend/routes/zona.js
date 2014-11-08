@@ -18,19 +18,19 @@ conexion.query('USE gestion');
 
 exports.todasLasZonas = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM zona ;", function(err, rows){
+	conexion.query("SELECT zona.IdZona, zona.Nombre, zona.TotalPale, bodega.Nombre as 'Bodega', tipoalmacenaje.Nombre as 'Almacenaje' FROM zona, bodega, tipoalmacenaje WHERE zona.IdBodega=bodega.IdBodega AND zona.IdTipoAlmacenaje=tipoalmacenaje.IdTipoAlmacenaje ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(JSON.stringify(rows));
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombreZonas = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT Nombre FROM zona;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerZona = function(req, res){
@@ -43,7 +43,7 @@ exports.obtenerZona = function(req, res){
 
 exports.insertarZona = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO zona SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO zona VALUES ('"+req.body.IdZona+"', '"+req.body.Nombre+"','"+req.body.TotalPale+"', (SELECT IdBodega FROM bodega WHERE Nombre='"+req.body.IdBodega+"'), (SELECT IdTipoAlmacenaje FROM tipoalmacenaje WHERE Nombre='"+req.body.IdTipoAlmacenaje+"'));",req.body, function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

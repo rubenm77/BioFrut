@@ -9,14 +9,14 @@ BioFrut.controller('todasLasZonasControllers', function($scope, todasLasZonasMod
 
 });
 
-// // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-// BioFrut.controller('obtenerDatosUsuariosControllers', function($scope, obtenerDatosUsuariosModels) {
+// Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
+BioFrut.controller('obtenerNombreZonasControllers', function($scope, obtenerNombreZonasModels) {
 
-// 	obtenerDatosUsuariosModels.obtenerDatosUsuarios().success(function(data){
-// 		$scope.obtenerDatosUsuarios = data;
-// 	});
+	obtenerNombreZonasModels.obtenerNombreZonas().success(function(data){
+		$scope.nombreZonas = data;
+	});
 
-// });
+});
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
@@ -47,9 +47,8 @@ BioFrut.controller('insertarZonaControllers', function($scope, insertarZonaModel
 		// boton almacenar nuevo usuario
 		$scope.obtenerDatosZona= function(zona){
 
-			insertarZonaModels.insertarZona(Zona);
-					 // JSON.stringify(angular.copy(usuario));
-				// console.log(JSON.stringify(angular.copy(usuario)));
+			insertarZonaModels.insertarZona(zona);
+					
 		}
 
 		// boton limpiar los campos del formulario nuevo usuario

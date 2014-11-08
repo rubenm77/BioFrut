@@ -164,7 +164,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla bodega
 	app.get('/bodega/todasLasBodegas', bodega.todasLasBodegas);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/bodega/obtenerNombreBodegas', bodega.obtenerNombreBodegas);
 
 	app.get('/bodega/obtenerBodega/:codigo', bodega.obtenerBodega);
 
@@ -220,7 +220,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla cuadrilla
 	app.get('/cuadrilla/todasLasCuadrillas', cuadrilla.todasLasCuadrillas);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/cuadrilla/obtenerNombreCuadrillas', cuadrilla.obtenerNombreCuadrillas);
 
 	app.get('/cuadrilla/obtenerCuadrilla/:codigo', cuadrilla.obtenerCuadrilla);
 
@@ -375,7 +375,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla tipo almacenaje
 	app.get('/almacenaje/todosLosAlmacenajes', almacenaje.todosLosAlmacenajes);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/almacenaje/obtenerNombreAlmacenajes', almacenaje.obtenerNombreAlmacenajes);
 
 	app.get('/almacenaje/obtenerAlmacenaje/:codigo', almacenaje.obtenerAlmacenaje);
 
@@ -416,6 +416,8 @@ module.exports = function(app, passport) {
 
 	// rutas de las solicitudes a la tabla zona
 	app.get('/zona/todasLasZonas', zona.todasLasZonas);
+
+	app.get('/zona/obtenerNombreZonas', zona.obtenerNombreZonas);
 
 	app.get('/zona/obtenerZona/:codigo', zona.obtenerZona);
 

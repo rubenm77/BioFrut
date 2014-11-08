@@ -4,13 +4,13 @@
 		<div class="row">
 			
 			<table class="table table-bordered">
-				<tr><td>Codigo</td><td>Nombre</td><td>Temperatura</td><td>Bodega</td><td>Tipo Almacenaje</td><td>Acciones</td></tr>
+				<tr><td>Codigo</td><td>Nombre</td><td>Total Pales</td><td>Bodega</td><td>Tipo Almacenaje</td><td>Acciones</td></tr>
 				<tr ng-repeat=" bandeja in todasLasZonas | filter:searchText">
 					<td>{{bandeja.IdZona}}</td>
 					<td>{{bandeja.Nombre}}</td>
-					<td>{{bandeja.Temperatura}}</td>
+					<td>{{bandeja.TotalPale}}</td>
 					<td>{{bandeja.Bodega}}</td>
-					<td>{{bandeja.TipoAlmacenaje}}</td>
+					<td>{{bandeja.Almacenaje}}</td>
 					<td>
 					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
 					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>

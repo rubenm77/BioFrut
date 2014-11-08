@@ -18,7 +18,7 @@ conexion.query('USE gestion');
 
 exports.todasLasCuadrillas = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT cuadrilla.IdCuadrilla, cuadrilla.Nombre, tarjeta.IdTarjeta FROM cuadrilla, tarjeta WHERE cuadrilla.IdTarjeta=tarjeta.IdTarjeta;", function(err, rows){
+	conexion.query("SELECT cuadrilla.IdCuadrilla, cuadrilla.Nombre, tarjetatrabajador.IdTarjeta, huerto.Nombre as 'Huerto' FROM cuadrilla, tarjetatrabajador, huerto WHERE cuadrilla.IdTarjeta=tarjetatrabajador.IdTarjeta AND cuadrilla.IdHuerto=huerto.IdHuerto;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
@@ -43,7 +43,7 @@ exports.obtenerCuadrilla = function(req, res){
 
 exports.insertarCuadrilla = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO cuadrilla VALUES ('"+req.body.IdCuadrilla+"', '"+req.body.Nombre+"','"+req.body.IdTarjeta+"');", function(err, rows){
+	conexion.query("INSERT INTO cuadrilla VALUES ('"+req.body.IdCuadrilla+"', '"+req.body.Nombre+"','"+req.body.IdTarjeta+"', (SELECT IdHuerto FROM huerto WHERE Nombre='"+req.body.IdHuerto+"'));", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
