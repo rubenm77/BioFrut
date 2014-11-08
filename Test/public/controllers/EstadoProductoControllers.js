@@ -1,8 +1,8 @@
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo todos los usuarios del sistema
-BioFrut.controller('todasLasMermasControllers', function($scope, todasLasMermasModels){
+BioFrut.controller('todosLosEstadoProductosControllers', function($scope, todosLosEstadoProductosModels){
 
-	todasLasMermasModels.todasLasMermas().success(function(data){
-		$scope.todasLasMermas= data;
+	todosLosEstadoProductosModels.todosLosEstadoProductos().success(function(data){
+		$scope.todosLosEstadoProductos= data;
 	}); 
 
 	
@@ -10,69 +10,64 @@ BioFrut.controller('todasLasMermasControllers', function($scope, todasLasMermasM
 });
 
 // // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-// BioFrut.controller('obtenerDatosUsuariosControllers', function($scope, obtenerDatosUsuariosModels) {
+BioFrut.controller('obtenerNombreEstadosControllers', function($scope, obtenerNombreEstadosModels) {
 
-// 	obtenerDatosUsuariosModels.obtenerDatosUsuarios().success(function(data){
-// 		$scope.obtenerDatosUsuarios = data;
-// 	});
+	obtenerNombreEstadosModels.obtenerNombreEstados().success(function(data){
+		$scope.nombreEstadoProductos = data;
+	});
 
-// });
+});
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-BioFrut.controller('obtenerMermaControllers', function($scope, obtenerMermaModels) {
+BioFrut.controller('obtenerEstadoProductosControllers', function($scope, obtenerEstadoProductosModels) {
 
-	obtenerMermaModels.obtenerMerma().success(function(data){
-		$scope.obtenerMerma= data;
+	obtenerEstadoProductosModels.obtenerEstadoProductos().success(function(data){
+		$scope.obtenerEstadoProductos = data;
 	});
 
 });
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, actualizando un solo usuario del sistema
-BioFrut.controller('actualizarMermaControllers', function($scope, actualizarMermaModels) {
+BioFrut.controller('actualizarEstadoProductosControllers', function($scope, actualizarEstadoProductosModels) {
 
-	actualizarMermaModels.actualizarMerma().success(function(data){
-		$scope.actualizarMerma = data;
+	actualizarEstadoProductosModels.actualizarEstadoProductos().success(function(data){
+		$scope.actualizarEstadoProductos = data;
 	});
 
 });
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, insertando un solo usuario del sistema
-BioFrut.controller('insertarMermaControllers', function($scope, insertarMermaModels) {
+BioFrut.controller('insertarEstadoProductosControllers', function($scope, insertarEstadoProductosModels) {
 	// integracion de patron observer
 	$scope.$watch(function(){
 
 		// boton almacenar nuevo usuario
-		$scope.obtenerDatosMerma= function(merma){
+		$scope.obtenerDatosEstadoProductos = function(estadoproducto){
 
-			insertarMermaModels.insertarMerma(merma);
-					 // JSON.stringify(angular.copy(usuario));
-				// console.log(JSON.stringify(angular.copy(usuario)));
+			insertarEstadoProductosModels.insertarEstadoProductos(estadoproducto);
+			
 		}
 
 		// boton limpiar los campos del formulario nuevo usuario
-		$scope.limpiarDatosMerma = function(merma){
+		$scope.limpiarDatosEstadoProductos = function(estadoproducto){
 
-		$scope.merma = {};
+		$scope.estadoproductos = {};
 
 		}
 
 	});
 
-	// insertarUsuarioModels.insertarUsuario().success(function(data){
-	// 	$scope.insertarUsuario = data;
-	// });
-
 });
 
 
  // Gestiona la comunicacion entre el API RESTful y los Views, eliminando un solo usuario del sistema
-BioFrut.controller('eliminarMermaControllers', function($scope,  eliminarMermaModels) {
+BioFrut.controller('eliminarEstadoProductosControllers', function($scope,  eliminarEstadoProductosModels) {
 
-	eliminarMermaModels.eliminarMerma().success(function(data){
-		$scope.obtenerMerma = data;
+	eliminarEstadoProductosModels.eliminarEstadoProductos().success(function(data){
+		$scope.obtenerEstadoProductos = data;
 	});
 
 });

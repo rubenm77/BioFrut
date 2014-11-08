@@ -12,6 +12,10 @@ BioFrut.config(['$routeProvider', function($routeProvider, $locationProvider, $h
 
 	.when('/Usuarios', { controller:'todosLosUsuariosControllers', templateUrl:'../views/templateTodosLosUsuarios.html'})
 
+	.when('/nuevoEstadoProducto', { controller:'insertarEstadoProductosControllers', templateUrl:'../views/templateNuevoEstadoProducto.html'})
+
+	.when('/EstadoProductos', { controller:'todosLosEstadoProductosControllers', templateUrl:'../views/templateTodosLosEstadosProductos.html'})
+
 	.when('/nuevoControlBodega', { controller:'insertarControlBodegaControllers', templateUrl:'../views/templateNuevoControlbodega.html'})
 
 	.when('/nuevoUsuario', { controller:'insertarUsuarioControllers', templateUrl:'../views/templateNuevoUsuario.html'})

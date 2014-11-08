@@ -303,17 +303,17 @@ module.exports = function(app, passport) {
 
 
 	// rutas de las solicitudes a la tabla pale
-	app.get('/estadoproducto/todosLosEstadosProducto', estadoproducto.todosLosEstadosProducto);
+	app.get('/estadoproducto/todosLosEstadoProductos', estadoproducto.todosLosEstadoProductos);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/estadoproducto/obtenerNombreEstadoProducto', estadoproducto.obtenerNombreEstadoProductos);
 
-	app.get('/estadoproducto/obtenerEstadoProducto/:codigo', estadoproducto.obtenerEstadoProducto);
+	app.get('/estadoproducto/obtenerEstadoProducto/:codigo', estadoproducto.obtenerEstadoProductos);
 
-	app.post('/estadoproducto/insertarEstadoProducto/estadoproducto', estadoproducto.insertarEstadoProducto);
+	app.post('/estadoproducto/insertarEstadoProducto/estadoproducto', estadoproducto.insertarEstadoProductos);
 
-	app.put('/estadoproducto/actualizarEstadoProducto', estadoproducto.actualizarEstadoProducto);
+	app.put('/estadoproducto/actualizarEstadoProducto', estadoproducto.actualizarEstadoProductos);
 
-	app.delete('/estadoproducto/eliminarEstadoProducto', estadoproducto.eliminarEstadoProducto);
+	app.delete('/estadoproducto/eliminarEstadoProducto', estadoproducto.eliminarEstadoProductos);
 
 
 

@@ -1,4 +1,4 @@
-<div class="container" ng-controller="insertarStockControllers">
+<div class="container" ng-controller="insertarEstadoProductosControllers">
 
 			
 				<form role="form-inline">
@@ -7,7 +7,7 @@
 
 					 	<div class="form-group">
 					 		<label for="">cod. Estado del Producto: </label>
-					 		<input type="number" class="form-group" placeholder="stock" ng-model="stock.codigo">
+					 		<input type="number" class="form-group" placeholder="stock" ng-model="estadoproducto.IdEstadoProducto">
 					 	</div>
 
 					</div>
@@ -15,7 +15,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="pales" ng-model="stock.pales">
+						 	<input type="text" class="form-group" placeholder="pales" ng-model="estadoproducto.Nombre">
 					 	</div>
 				 </div>	
 
@@ -26,9 +26,9 @@
 				<br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosStock(stock)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 <button class="btn btn-success" ng-click="obtenerDatosEstadoProductos(estadoproducto)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
-				 	<button class="btn" ng-click="limpiarDatosStock()">Limpiar Campos</button>
+				 <button class="btn" ng-click="limpiarDatosEstadoProductos()">Limpiar Campos</button>
 
 				 </div>
 

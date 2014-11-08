@@ -12,7 +12,7 @@ BioFrut.service('todasLasCalificacionesModels', function($http){
 
 BioFrut.service('obtenerNombreCalificacionesModels', function($http){
 
-  this.obtenerNombeCalificaciones = function(){
+  this.obtenerNombreCalificaciones = function(){
 
     return $http({method:'GET',url:'http://localhost:3000/calificacion/obtenerNombreCalificaciones'});
         

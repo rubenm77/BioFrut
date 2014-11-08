@@ -18,7 +18,7 @@ conexion.query('USE gestion');
 
 exports.todosLosControles = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM controlcalidad ;", function(err, rows){
+	conexion.query("SELECT controlcalidad.IdControl, controlcalidad.Fecha, controlcalidad.Hora, controlcalidad.TotalMerma, calificacion.Nota, estadoproducto.Nombre FROM controlcalidad, calificacion, estadoproducto WHERE controlcalidad.IdCalificacion= calificacion.IdCalificacion AND controlcalidad.IdEstadoProducto=estadoproducto.IdEstadoProducto ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
@@ -43,7 +43,7 @@ exports.obtenerControl = function(req, res){
 
 exports.insertarControl = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO controlcalidad SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO controlcalidad VALUES ('"+req.body.IdControl+"', '"+req.body.Fecha+"', '"+req.body.Hora+"', '"+req.body.TotalMerma+"', (SELECT IdCalificacion FROM calificacion WHERE Nota='"+req.body.IdCalificacion+"'), (SELECT IdEstadoProducto FROM estadoproducto WHERE Nombre='"+req.body.IdEstadoProducto+"'));", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
@@ -51,7 +51,7 @@ exports.insertarControl = function(req, res){
 
 exports.actualizarControl = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("UPDATE controlcalidad SET Fecha='"+req.body.fecha+"', Hora='"+req.body.hora+"'', IdMerma='"+req.body.idMerma+"'', IdCalificacion='"+req.body.idCalificacion+"'' WHERE IdControl="+req.body.idControl+" ;", function(err, rows){
+	conexion.query("UPDATE controlcalidad SET Fecha='"+req.body.fecha+"', Hora='"+req.body.hora+"'', IdMerma='"+req.body.IdMerma+"'', IdCalificacion='"+req.body.idCalificacion+"'' WHERE IdControl="+req.body.idControl+" ;", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

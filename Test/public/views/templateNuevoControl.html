@@ -7,7 +7,7 @@
 
 					 	<div class="form-group">
 					 		<label for="">cod. Control de Calidad : </label>
-					 		<input type="number" class="form-group" placeholder="control" ng-model="control.codigo">
+					 		<input type="number" class="form-group" placeholder="control" ng-model="control.IdControl">
 					 	</div>
 
 					</div>
@@ -15,21 +15,21 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha :</label>
-						 	<input type="text" class="form-group" placeholder="fecha" ng-model="control.fecha">
+						 	<input type="text" class="form-group" placeholder="fecha" ng-model="control.Fecha">
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="text" class="form-group" placeholder="hora" ng-model="control.hora">
+						 	<input type="text" class="form-group" placeholder="hora" ng-model="control.Hora">
 					 	</div>
 				 </div>
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Total Merma:</label>
-						 	<input type="text" class="form-group" placeholder="merma" ng-model="control.merma">
+						 	<input type="text" class="form-group" placeholder="merma" ng-model="control.TotalMerma">
 					 	</div>
 				 </div>
 
@@ -41,9 +41,9 @@
 					<div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Calificacion :</label>
-						 	<select ng-model="control.IdControl"  ng-controller="obtenerNombreCalificacionesControllers">
+						 	<select ng-model="control.IdCalificacion"  ng-controller="obtenerNombreCalificacionesControllers">
 						 		<option disabled="disabled">Seleccione una opcion</option>
-							  	<option  ng-repeat="nombre in nombreTarjetas">{{nombre.IdTarjeta}}</option>
+							  	<option  ng-repeat="calificacion in nombreCalificaciones">{{calificacion.Nota}}</option>
 							</select>
 					 	</div>
 				 </div>
@@ -52,9 +52,9 @@
 					<div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Estado del producto :</label>
-						 	<select ng-model="control.IdTarjeta"  ng-controller="obtenerNombreControllers">
+						 	<select ng-model="control.IdEstadoProducto"  ng-controller="obtenerNombreEstadosControllers">
 						 		<option disabled="disabled">Seleccione una opcion</option>
-							  	<option  ng-repeat="nombre in nombreTarjetas">{{nombre.IdTarjeta}}</option>
+							  	<option  ng-repeat="nombre in nombreEstadoProductos">{{nombre.Nombre}}</option>
 							</select>
 					 	</div>
 				 </div>

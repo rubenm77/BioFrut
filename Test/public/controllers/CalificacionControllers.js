@@ -10,7 +10,7 @@ BioFrut.controller('todasLasCalificacionesControllers', function($scope, todasLa
 });
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-BioFrut.controller('obtenerDatosUsuariosControllers', function($scope, obtenerNombreCalificacionesModels) {
+BioFrut.controller('obtenerNombreCalificacionesControllers', function($scope, obtenerNombreCalificacionesModels) {
 
 	obtenerNombreCalificacionesModels.obtenerNombreCalificaciones().success(function(data){
 		$scope.nombreCalificaciones = data;
