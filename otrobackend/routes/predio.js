@@ -18,19 +18,19 @@ conexion.query('USE gestion');
 
 exports.todosLosPredios = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM predio ;", function(err, rows){
+	conexion.query("SELECT predio.IdPredio, predio.Nombre, fundo.IdFundo FROM predio, fundo WHERE predio.IdFundo=fundo.IdFundo;", function(err, rows){
 		if(err) throw console.log(err);
-		res.send(JSON.stringify(rows));
+		res.send(rows);
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombrePredios = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT Nombre FROM predio;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerPredio = function(req, res){
@@ -43,7 +43,7 @@ exports.obtenerPredio = function(req, res){
 
 exports.insertarPredio = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO predio SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO predio VALUES ('"+req.body.IdPredio+"','"+req.body.Nombre+"', (SELECT IdFundo FROM fundo WHERE Nombre='"+req.body.IdFundo+"'));", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

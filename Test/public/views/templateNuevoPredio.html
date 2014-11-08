@@ -7,7 +7,7 @@
 
 					 	<div class="form-group">
 					 		<label for="">cod. Predio : </label>
-					 		<input type="number" class="form-group" placeholder="pale" ng-model="predio.codigo">
+					 		<input type="number" class="form-group" placeholder="pale" ng-model="predio.IdPredio">
 					 	</div>
 
 					</div>
@@ -15,14 +15,14 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="nombre" ng-model="predio.nombre">
+						 	<input type="text" class="form-group" placeholder="nombre" ng-model="predio.Nombre">
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Fundo :</label>
-						 	<select ng-model="predio.IdCiudad"  ng-controller="obtenerNombreFundosControllers">
+						 	<select ng-model="predio.IdFundo"  ng-controller="obtenerNombreFundosControllers">
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombreFundos">{{nombre.Nombre}}</option>
 							</select>
@@ -36,9 +36,9 @@
 				<br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosPale(pale)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button class="btn btn-success" ng-click="obtenerDatosPredio(predio)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
-				 	<button class="btn" ng-click="limpiarDatosPale()">Limpiar Campos</button>
+				 	<button class="btn" ng-click="limpiarDatosPredio()">Limpiar Campos</button>
 
 				 </div>
 

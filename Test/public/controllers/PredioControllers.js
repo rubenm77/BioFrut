@@ -9,14 +9,14 @@ BioFrut.controller('todosLosPrediosControllers', function($scope, todosLosPredio
 
 });
 
-// // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-// BioFrut.controller('obtenerDatosUsuariosControllers', function($scope, obtenerDatosUsuariosModels) {
+// Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
+BioFrut.controller('obtenerNombrePrediosControllers', function($scope, obtenerNombrePrediosModels) {
 
-// 	obtenerDatosUsuariosModels.obtenerDatosUsuarios().success(function(data){
-// 		$scope.obtenerDatosUsuarios = data;
-// 	});
+	obtenerNombrePrediosModels.obtenerNombrePredios().success(function(data){
+		$scope.nombrePredios = data;
+	});
 
-// });
+});
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
@@ -48,8 +48,7 @@ BioFrut.controller('insertarPredioControllers', function($scope, insertarPredioM
 		$scope.obtenerDatosPredio = function(predio){
 
 			insertarPredioModels.insertarPredio(predio);
-					 // JSON.stringify(angular.copy(usuario));
-				// console.log(JSON.stringify(angular.copy(usuario)));
+				
 		}
 
 		// boton limpiar los campos del formulario nuevo usuario
@@ -60,10 +59,6 @@ BioFrut.controller('insertarPredioControllers', function($scope, insertarPredioM
 		}
 
 	});
-
-	// insertarUsuarioModels.insertarUsuario().success(function(data){
-	// 	$scope.insertarUsuario = data;
-	// });
 
 });
 

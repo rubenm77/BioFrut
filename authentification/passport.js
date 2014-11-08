@@ -53,9 +53,9 @@ module.exports = function(passport) {
             connection.query("SELECT usuario.nombre, usuario.apellido, perfil.IdPerfil, perfil.Login, perfil.Password, cargo.nombre as 'cargo' FROM usuario,perfil,cargo WHERE usuario.IdPerfil=perfil.IdPerfil AND usuario.IdCargo=cargo.IdCargo AND perfil.Login='"+username+"';",function(err, rows){
                 var hash = bcrypt.hashSync(rows[0].Password);
                 // console.log(bcrypt.compareSync(password,rows[0].Password));
-                if (err){
-                    return done(err);
-                }
+                // if (err){
+                //     return done(err);
+                // }
                 if (!rows.length) {
                     return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
                 }
@@ -65,7 +65,7 @@ module.exports = function(passport) {
 
                     return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
               
-            }
+                }
                 // all is well, return successful user
                 return done(null, rows[0]);
                 // console.log(rows);

@@ -31,9 +31,9 @@ module.exports = function(app, passport) {
 	// LOGIN ===============================
 	// =====================================
 	// show the login form
-	app.get('/login', function(req, res) {
+	app.get('/error', function(req, res) {
 		// console.log(res.body);
-		res.redirect('./views/login.html');
+		res.redirect('./views/error.html');
 		// render the page and pass in any flash data if it exists
 		// res.render('login', { message: req.flash('loginMessage') });
 	});
@@ -48,7 +48,7 @@ module.exports = function(app, passport) {
 
 
 	app.get('/profile', function(req, res) {
-		console.log(req.get('host')); 
+		// console.log(req.flash()); 
 		if(req.get('host') === 'localhost:3000' || req.get('host') === '192.168.173.1:3000' ){
 
 			res.redirect('./views/profile.html');
@@ -80,9 +80,9 @@ module.exports = function(app, passport) {
 	// process the login form
 	app.post('/systemLogin', passport.authenticate('local-login', {
             successRedirect : '/profile', // redirect to the secure profile section
-            failureRedirect : '/login', // redirect back to the signup page if there is an error
+            failureRedirect : '/error', // redirect back to the signup page if there is an error
             failureFlash : true, // allow flash messages
-            passReqToCallback: true
+            // passReqToCallback: true
 		}),
         function(req, res) {
         // console.log();
@@ -312,7 +312,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla predio
 	app.get('/predio/todosLosPredios', predio.todosLosPredios);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/predio/obtenerNombrePredios', predio.obtenerNombrePredios);
 
 	app.get('/predio/obtenerPredio/:codigo', predio.obtenerPredio);
 
