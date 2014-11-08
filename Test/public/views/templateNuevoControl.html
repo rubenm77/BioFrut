@@ -28,12 +28,12 @@
 
 				 <div class="span3">
 					 	<div class="form-group">
-						 	<label for="">Cod. Merma :</label>
+						 	<label for="">Total Merma:</label>
 						 	<input type="text" class="form-group" placeholder="merma" ng-model="control.merma">
 					 	</div>
 				 </div>
 
-				  
+				  <br><br><br><br>
 
 				</form>	
 
@@ -41,7 +41,21 @@
 					<div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Calificacion :</label>
-						 	<input type="text" class="form-group" placeholder="calificacion" ng-model="control.calificacion">
+						 	<select ng-model="control.IdControl"  ng-controller="obtenerNombreCalificacionesControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreTarjetas">{{nombre.IdTarjeta}}</option>
+							</select>
+					 	</div>
+				 </div>
+
+				 <form role="form-inline">
+					<div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Estado del producto :</label>
+						 	<select ng-model="control.IdTarjeta"  ng-controller="obtenerNombreControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreTarjetas">{{nombre.IdTarjeta}}</option>
+							</select>
 					 	</div>
 				 </div>
 				</form>

@@ -20,17 +20,17 @@ exports.todosLosControles = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
 	conexion.query("SELECT * FROM controlcalidad ;", function(err, rows){
 		if(err) throw console.log(err);
-		res.send(JSON.stringify(rows));
+		res.send(rows);
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombreControles = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT Fecha FROM controlcalidad;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerControl = function(req, res){

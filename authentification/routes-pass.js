@@ -206,7 +206,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla control
 	app.get('/control/todosLosControles', control.todosLosControles);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/control/obtenerNombreControles', control.obtenerNombreControles);
 
 	app.get('/control/obtenerControl/:codigo', control.obtenerControl);
 
