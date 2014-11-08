@@ -10,6 +10,9 @@ body{color: black;}
 /*Tablet o Smartphone*/
 @media(max-width: 767px){
 body{color: blue;}
+
+button{width: 150px;}
+button{height: 50px;}
 }
 /* Smartphone*/
 @media(max-width: 480px){
