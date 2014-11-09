@@ -3,13 +3,12 @@
 			
 				<form role="form-inline">
 
-				 <div class=row>
-
+				 
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">Cod. Despacho: </label>
-					 		<input type="number" class="form-group" placeholder="guia" ng-model="guia.codigo">
+					 		<input type="number" class="form-group" placeholder="guia" ng-model="despacho.IdDespacho">
 					 	</div>
 
 					</div>
@@ -17,47 +16,68 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha:</label>
-						 	<input type="text" class="form-group" placeholder="bandeja" ng-model="guia.bandeja">
+						 	<input type="text" class="form-group" placeholder="bandeja" ng-model="despacho.Fecha">
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="text" class="form-group" placeholder="fecha" ng-model="guia.fecha">
+						 	<input type="text" class="form-group" placeholder="fecha" ng-model="despacho.Hora">
 					 	</div>
 				 </div>
 
-				 <div class="span3">
+				  <div class="span3">
 					 	<div class="form-group">
-						 	<label for="">Cod. Tipo de producto:</label>
-						 	<input type="text" class="form-group" placeholder="hora" ng-model="guia.hora">
+						 	<label for="">Cantidad Pale :</label>
+						 	<input type="text" class="form-group" placeholder="fecha" ng-model="despacho.CantidadPale">
 					 	</div>
 				 </div>
-                </div>
-                 <div class="row">
+
+				
+
+               </form>
+
+             <form role="form-inline">
+
+             	 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Tipo de producto:</label>
+						 	<select ng-model="despacho.IdTipoProducto"  ng-controller="obtenerNombreTproductoControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreTproducto">{{nombre.Nombre}}</option>
+							</select>
+					 	</div>
+				 </div>
+
 				  <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Control :</label>
-						 	<input type="text" class="form-group" placeholder="tproducto" ng-model="guia.tproducto">
+						 	<select ng-model="despacho.IdControl"  ng-controller="obtenerNombreControlesControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="control in nombreControles">{{control.IdControl}}</option>
+							</select>
 					 	</div>
 				 </div>
 
-				   <div class="span3">
+				  <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Cuadrilla :</label>
-						 	<input type="text" class="form-group" placeholder="tproducto" ng-model="guia.tproducto">
+						 	<select ng-model="despacho.IdCuadrilla"  ng-controller="obtenerNombreCuadrillasControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="cuadrilla in nombreCuadrillas">{{cuadrilla.Nombre}}</option>
+							</select>
 					 	</div>
 				 </div>
-                </div>
+                
 				</form>	
 
-				<br>
+				<br><br><br><br><br><br><br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosGuia(guia)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button class="btn btn-success" ng-click="obtenerDatosDespacho(despacho)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
-				 	<button class="btn" ng-click="limpiarDatosGuia()">Limpiar Campos</button>
+				 	<button class="btn" ng-click="limpiarDatosDespacho()">Limpiar Campos</button>
 
 				 </div>
 

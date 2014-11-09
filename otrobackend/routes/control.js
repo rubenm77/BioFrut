@@ -26,7 +26,7 @@ exports.todosLosControles = function(req, res){
 
 exports.obtenerNombreControles = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query('SELECT Fecha FROM controlcalidad;',function(err, rows){
+	conexion.query('SELECT IdControl FROM controlcalidad;',function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

@@ -18,19 +18,19 @@ conexion.query('USE gestion');
 
 exports.todosLosControlesBodega = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM controlbodega ;", function(err, rows){
+	conexion.query("SELECT controlbodega.IdControlBodega, controlbodega.CantidadPale, controlcalidad.IdControl, despacho.IdDespacho, zona.Nombre FROM controlbodega, controlcalidad, despacho, zona WHERE controlbodega.IdControl=controlcalidad.IdControl AND controlbodega.IdDespacho=despacho.IdDespacho AND controlbodega.IdZona=zona.IdZona;", function(err, rows){
 		if(err) throw console.log(err);
-		res.send(JSON.stringify(rows));
+		res.send(rows);
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombreControlBodegas = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT IdControlBodega FROM controlbodega;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerControlBodega = function(req, res){
@@ -43,7 +43,7 @@ exports.obtenerControlBodega = function(req, res){
 
 exports.insertarControlBodega = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO controlbodega SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO controlbodega VALUES ('"+req.body.IdControlBodega+"', '"+req.body.CantidadPale+"', '"+req.body.IdControl+"', '"+req.body.IdDespacho+"', ( SELECT IdZona FROM zona WHERE Nombre='"+req.body.IdZona+"'));", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});

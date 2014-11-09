@@ -248,7 +248,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla guia
 	app.get('/controlbodega/todosLosControlesBodega',controlbodega.todosLosControlesBodega);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/controlbodega/obtenerNombreControlBodegas', controlbodega.obtenerNombreControlBodegas);
 
 	app.get('/controlbodega/obtenerControlBodega/:codigo', controlbodega.obtenerControlBodega);
 
@@ -277,7 +277,7 @@ module.exports = function(app, passport) {
 	// rutas de las solicitudes a la tabla merma
 	app.get('/despacho/todosLosDespachos', despacho.todosLosDespachos);
 
-	// app.get('/usuario/obtenerDatosUsuarios',usuario.obtenerDatosUsuarios);
+	app.get('/despacho/obtenerNombreDespachos', despacho.obtenerNombreDespachos);
 
 	app.get('/despacho/obtenerDespacho:codigo', despacho.obtenerDespacho);
 

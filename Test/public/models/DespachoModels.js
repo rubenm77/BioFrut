@@ -10,15 +10,15 @@ BioFrut.service('todosLosDespachosModels', function($http){
 });
 
 // rescata todos los usuarios del sistema con el nombre del perfil y el cargo desde el API RESTful
-// BioFrut.service('obtenerDatosUsuariosModels', function($http){
+BioFrut.service('obtenerNombreDespachosModels', function($http){
 
-//   this.obtenerDatosUsuarios = function(){
+  this.obtenerNombreDespachos = function(){
 
-//     return $http({method:'GET',url:'http://localhost:3000/usuario/obtenerDatosUsuarios'});
+    return $http({method:'GET',url:'http://localhost:3000/despacho/obtenerNombreDespachos'});
         
-//     }  
+    }  
 
-// });
+});
 
 
 // obtiene un usuario en especifico del sistema desde el API RESTful

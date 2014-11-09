@@ -8,13 +8,13 @@ BioFrut.controller('todosLosControlesBodegaControllers', function($scope, todosL
 });
 
 // // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
-// BioFrut.controller('obtenerDatosUsuariosControllers', function($scope, obtenerDatosUsuariosModels) {
+BioFrut.controller('obtenerNombreControlBodegasControllers', function($scope, obtenerNombreControlBodegasModels) {
 
-// 	obtenerDatosUsuariosModels.obtenerDatosUsuarios().success(function(data){
-// 		$scope.obtenerDatosUsuarios = data;
-// 	});
+	obtenerNombreControlBodegasModels.obtenerNombreControlBodegas().success(function(data){
+		$scope.nombreControlBodegas = data;
+	});
 
-// });
+});
 
 
 // Gestiona la comunicacion entre el API RESTful y los Views, obteniendo un solo usuario del sistema
@@ -43,7 +43,7 @@ BioFrut.controller('insertarControlBodegaControllers', function($scope, insertar
 	$scope.$watch(function(){
 
 		// boton almacenar nuevo usuario
-		$scope.obtenerControlBodega = function(controlbodega){
+		$scope.obtenerDatosControlBodega = function(controlbodega){
 
 			insertarControlBodegaModels.insertarControlBodega(controlbodega);
 					 // JSON.stringify(angular.copy(usuario));

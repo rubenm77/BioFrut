@@ -1,4 +1,4 @@
-<div class="container" ng-controller="insertarPaleControllers">
+<div class="container" ng-controller="insertarControlBodegaControllers">
 
 			
 				<form role="form-inline">
@@ -7,7 +7,7 @@
 
 					 	<div class="form-group">
 					 		<label for="">Cod. Control de Bodega : </label>
-					 		<input type="number" class="form-group" placeholder="control de bodega" ng-model="pale.codigo">
+					 		<input type="number" class="form-group" placeholder="control de bodega" ng-model="controlbodega.IdControlBodega">
 					 	</div>
 
 					</div>
@@ -15,21 +15,28 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Cantidad de Pale :</label>
-						 	<input type="text" class="form-group" placeholder="pale" ng-model="pale.bandejas">
+						 	<input type="text" class="form-group" placeholder="pale" ng-model="controlbodega.CantidadPale">
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
-						 	<label for="">Fecha :</label>
-						 	<input type="text" class="form-group" placeholder="fecha" ng-model="pale.fecha">
+						 	<label for="">Cod. Control de Calidad :</label>
+						 	<select ng-model="controlbodega.IdControl"  ng-controller="obtenerNombreControlesControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreControles">{{nombre.IdControl}}</option>
+							</select>
 					 	</div>
 				 </div>
 
-				 <div class="span3">
+
+				  <div class="span3">
 					 	<div class="form-group">
-						 	<label for="">Hora :</label>
-						 	<input type="text" class="form-group" placeholder="hora" ng-model="pale.hora">
+						 	<label for="">Cod. Despacho :</label>
+						 	<select ng-model="controlbodega.IdDespacho"  ng-controller="obtenerNombreDespachosControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreDespachos">{{nombre.IdDespacho}}</option>
+							</select>
 					 	</div>
 				 </div>
 
@@ -37,41 +44,26 @@
 
 				<form role="form-inline">
 
-				  <div class="span3">
-					 	<div class="form-group">
-						 	<label for="">Cod. Control de Calidad :</label>
-						 	<input type="text" class="form-group" placeholder="control de calidad" ng-model="pale.guia">
-					 	</div>
-				 </div>
 
 				 <div class="span3">
 					 	<div class="form-group">
-						 	<label for="">Cod. Despacho :</label>
-						 	<input type="text" class="form-group" placeholder="despacho" ng-model="pale.stock">
+						 	<label for="">Cod. Zona :</label>
+						 	<select ng-model="controlbodega.IdZona"  ng-controller="obtenerNombreZonasControllers">
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreZonas">{{nombre.Nombre}}</option>
+							</select>
 					 	</div>
 				 </div>
-
-				  <div class="span3">
-					 	<div class="form-group">
-						 	<label for="">Zona:</label>
-						 	<select class="selectpicker" ng-model="control.idcalificacion">
-                           	  <option>Mustard</option>
-    						  <option>Ketchup</option>
-    						  <option>Relish</option>
- 						    </select>
-					 	</div>
-				 </div>
-
 
 
 				</form>	
 
-				<br><br><br><br><br><br><br><br><br>
+				<br><br><br><br><br><br><br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosPale(pale)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button class="btn btn-success" ng-click="obtenerDatosControlBodega(controlbodega)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
-				 	<button class="btn" ng-click="limpiarDatosPale()">Limpiar Campos</button>
+				 	<button class="btn" ng-click="limpiarDatosControlBodega()">Limpiar Campos</button>
 
 				 </div>
 

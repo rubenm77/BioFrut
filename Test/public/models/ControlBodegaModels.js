@@ -10,15 +10,15 @@ BioFrut.service('todosLosControlesBodegaModels', function($http){
 });
 
 // rescata todos los usuarios del sistema con el nombre del perfil y el cargo desde el API RESTful
-// BioFrut.service('obtenerDatosUsuariosModels', function($http){
+BioFrut.service('obtenerNombreControlBodegasModels', function($http){
 
-//   this.obtenerDatosUsuarios = function(){
+  this.obtenerNombreControlBodegas = function(){
 
-//     return $http({method:'GET',url:'http://localhost:3000/usuario/obtenerDatosUsuarios'});
+    return $http({method:'GET',url:'http://localhost:3000/controlbodega/obtenerNombreControlBodegas'});
         
-//     }  
+    }  
 
-// });
+});
 
 
 // obtiene un usuario en especifico del sistema desde el API RESTful
@@ -48,7 +48,7 @@ BioFrut.service('actualizarControlBodegaModels', function($http){
 // insertar un usuario en especifico del sistema hacia el API RESTful
 BioFrut.service('insertarControlBodegaModels', function($http){
 
-  this.insertarControlBodega = function(guia){
+  this.insertarControlBodega = function(controlbodega){
     
   var controlbodega = JSON.stringify(controlbodega);
   return $http({method:'POST', url:'http://localhost:3000/controlbodega/insertarControlBodega/controlbodega', data: controlbodega});

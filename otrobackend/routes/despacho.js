@@ -18,19 +18,19 @@ conexion.query('USE gestion');
 
 exports.todosLosDespachos = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("SELECT * FROM despacho ;", function(err, rows){
+	conexion.query("SELECT despacho.IdDespacho, despacho.Fecha, despacho.Hora, despacho.CantidadPale, tipoproducto.Nombre, controlcalidad.IdControl, cuadrilla.Nombre as 'Cuadrilla' FROM despacho, tipoproducto, controlcalidad, cuadrilla WHERE despacho.IdTipoProducto=tipoproducto.IdTipoProducto AND despacho.IdControl=controlcalidad.IdControl AND despacho.IdCuadrilla=cuadrilla.IdCuadrilla;", function(err, rows){
 		if(err) throw console.log(err);
-		res.send(JSON.stringify(rows));
+		res.send(rows);
 	});
 };
 
-// exports.obtenerDatosPerfiles = function(req, res){
-// 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-// 	conexion.query('SELECT usuario.IdUsuario, usuario.nombre, usuario.Apellido, cargo.Area, perfil.Login, cargo.Nombre FROM usuario, cargo, perfil WHERE usuario.IdCargo=cargo.IdCargo and usuario.IdPerfil=perfil.IdPerfil order by usuario.IdUsuario;',function(err, rows){
-// 		if(err) throw console.log(err);
-// 		res.send(rows);
-// 	});
-// };
+exports.obtenerNombreDespachos = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query('SELECT IdDespacho FROM despacho;',function(err, rows){
+		if(err) throw console.log(err);
+		res.send(rows);
+	});
+};
  
  
 exports.obtenerDespacho= function(req, res){
@@ -43,7 +43,7 @@ exports.obtenerDespacho= function(req, res){
 
 exports.insertarDespacho = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO despacho SET ? ;",req.body, function(err, rows){
+	conexion.query("INSERT INTO despacho VALUES ('"+req.body.IdDespacho+"','"+req.body.Fecha+"','"+req.body.Hora+"','"+req.body.CantidadPale+"', (SELECT IdTipoProducto FROM tipoproducto WHERE Nombre='"+req.body.IdTipoProducto+"'), '"+req.body.IdControl+"',(SELECT IdCuadrilla FROM cuadrilla WHERE Nombre='"+req.body.IdCuadrilla+"'));", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
