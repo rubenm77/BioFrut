@@ -25,6 +25,7 @@ module.exports = function(app, passport) {
 		var tproducto = require('../otrobackend/routes/tproducto');
 		var trabajador = require('../otrobackend/routes/trabajador');
 		var zona = require('../otrobackend/routes/zona');
+		var estado=require('../otrobackend/routes/estado');
 
 
 	// =====================================
@@ -104,6 +105,8 @@ module.exports = function(app, passport) {
 
         res.redirect('/');
     });
+
+    app.post('/estado/actualizarEstado/estado', estado.actualizarEstado);
 
 
 
@@ -426,6 +429,7 @@ module.exports = function(app, passport) {
 	app.put('/zona/actualizarZona', zona.actualizarZona);
 
 	app.delete('/zona/eliminarZona', zona.eliminarZona);
+
 
 
 	// =====================================

@@ -2,15 +2,14 @@
 <html ng-app="BioFrut">
 <head>
   <title></title>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css">
   <link rel="stylesheet" type="text/css" href="../css/responsive.css">
-  <script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<div class="text-center">
+<div  class="container" ng-controller="actualizarEstadoControllers">
 
     <div class="page-header">
   
@@ -19,28 +18,23 @@
 
     </div>
 
-       <div>
-            <label for="">Cuadrilla :</label>
-              <select ng-model="cuadrilla.Nombre"  ng-controller="obtenerNombreCuadrillasControllers" class="input-xlarge">
-                <option disabled="disabled">Seleccione una opcion</option>
-                <option  ng-repeat="nombre in nombreCuadrillas">{{nombre.Nombre}}</option>
+      <form role="form-inline">
+
+            <div>
+                <div class="form-group">
+                 <label for="">Cod. Cuadrilla :</label>
+                <select ng-model="estado.IdCuadrilla"  ng-controller="obtenerNombreCuadrillasControllers">
+                  <option disabled="disabled">Seleccione una opcion</option>
+                  <option  ng-repeat="cuadrilla in nombreCuadrillas">{{cuadrilla.Nombre}}</option>
               </select>
-         
-           <br>
-           <br>
-            <label for="">Ingrese su huerto:</label>
-             <select ng-model="huerto.Nombre"  ng-controller="obtenerNombreHuertosControllers" class="input-xlarge">
-                <option disabled="disabled">Seleccione una opcion</option>
-                <option  ng-repeat="nombre in nombreHuertos">{{nombre.Nombre}}</option>
-             </select>
-           <br>
-       </div>
-      
-        <div>
-         <br>
-            <button type="button" class="btn btn-primary  btn-xxlarge">Enviar</button>
-        </div>
-    </div>
+                </div>
+            </div>
+      </form>
+
+            <div>
+              <button class="btn btn-success" ng-click="obtenerDatosEstado(estado)"><span class="icon-edit icon-white"></span> Agregar</button> 
+            </div>
+</div>
 
 <script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
@@ -52,8 +46,9 @@
 <script type="text/javascript" src="../controllers/CuadrillaControllers.js"></script>
 <script type="text/javascript" src="../models/CuadrillaModels.js"></script>
 
-<script type="text/javascript" src="../controllers/HuertoControllers.js"></script>
-<script type="text/javascript" src="../models/HuertoModels.js"></script>
+<script type="text/javascript" src="../controllers/EstadoDigitadorControllers.js"></script>
+<script type="text/javascript" src="../models/EstadoDigitadorModels.js"></script>
+
 
 </body>
 </html>

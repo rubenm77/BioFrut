@@ -43,7 +43,7 @@ exports.obtenerCuadrilla = function(req, res){
 
 exports.insertarCuadrilla = function(req, res){
 	res.header("Access-Control-Allow-Origin","http://localhost:5000");
-	conexion.query("INSERT INTO cuadrilla VALUES ('"+req.body.IdCuadrilla+"', '"+req.body.Nombre+"','"+req.body.IdTarjeta+"', (SELECT IdHuerto FROM huerto WHERE Nombre='"+req.body.IdHuerto+"'));", function(err, rows){
+	conexion.query("INSERT INTO cuadrilla VALUES ('"+req.body.IdCuadrilla+"', '"+req.body.Nombre+"','"+req.body.IdTarjeta+"', (SELECT IdHuerto FROM huerto WHERE Nombre='"+req.body.IdHuerto+"'),null);", function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);
 	});
