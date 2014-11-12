@@ -1,13 +1,15 @@
 <div class="container" ng-controller="insertarFundoControllers">
 
 			
-				<form role="form-inline">
+				<form name="nuevoFundo" role="form-inline" novalidate>
 			
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">cod. Fundo : </label>
-					 		<input type="number" class="form-group" placeholder="fundo" ng-model="fundo.IdFundo">
+					 		<input type="number" name="cod" class="form-group" placeholder="fundo" ng-model="fundo.IdFundo" required>
+					 		<span style="color:red" ng-show="nuevoFundo.cod.$dirty && nuevoFundo.cod.$invalid">
+				            <span ng-show="nuevoFundo.cod.$error.required">Codigo Requerido.</span>
 					 	</div>
 
 					</div>
@@ -15,24 +17,33 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="nombre" ng-model="fundo.Nombre">
+						 	<input type="text" name="nombre" class="form-group"  ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="nombre" ng-model="fundo.Nombre" required>
+						 	<span style="color:red" ng-show="nuevoFundo.nombre.$dirty && nuevoFundo.nombre.$invalid">
+                             <span ng-show="nuevoFundo.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoFundo.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoFundo.nombre.$error.pattern">Ingrese solo letras</span>
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Direccion :</label>
-						 	<input type="text" class="form-group" placeholder="direccion" ng-model="fundo.Direccion">
+						 	<input type="text"  name="direc" class="form-group" ng-minlength="3" placeholder="direccion" ng-model="fundo.Direccion" required>
+						 	<span style="color:red" ng-show="nuevoFundo.direc.$dirty && nuevoFundo.direc.$invalid">
+				             <span ng-show="nuevoFundo.direc.$error.required">Dirección  Requerida.</span>
+				             <span ng-show="nuevoFundo.direc.$error.minlength">Dirección demasiado corta</span>
 					 	</div>
 				 </div>
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">cod. Ciudad :</label>
-						 <select ng-model="fundo.IdCiudad"  ng-controller="obtenerNombreCiudadesControllers">
-						 		<option disabled="disabled">Seleccione una opcion</option>
-							  	<option  ng-repeat="nombre in nombreCiudades">{{nombre.Nombre}}</option>
-							</select>
+						 <select  name="ciudad" ng-model="fundo.IdCiudad"  ng-controller="obtenerNombreCiudadesControllers" required>
+						 	<option disabled="disabled">Seleccione una opcion</option>
+							<option  ng-repeat="nombre in nombreCiudades">{{nombre.Nombre}}</option>
+						 </select>
+							<span style="color:red" ng-show="nuevoFundo.ciudad.$dirty && nuevoFundo.ciudad.$invalid">
+							 <span ng-show="nuevoFundo.ciudad.$error.required">Ciudad Requerida.</span>
 					 	</div>
 				 </div>
 
@@ -42,9 +53,10 @@
 				<br>
 				<br>
 				<br>
+				<br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosFundo(fundo)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button ng-disabled="!nuevoFundo.$valid" class="btn btn-success" ng-click="obtenerDatosFundo(fundo)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosFundo()">Limpiar Campos</button>
 
