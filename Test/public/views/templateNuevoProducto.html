@@ -1,13 +1,15 @@
 <div class="container" ng-controller="insertarProductoControllers">
 
 			
-				<form role="form-inline">
+				<form name="nuevoProducto" role="form-inline" novalidate>
 			
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">cod. Producto : </label>
-					 		<input type="number" class="form-group" placeholder="producto" ng-model="producto.IdProducto">
+					 		<input type="number" name="cod" class="form-group" placeholder="producto" ng-model="producto.IdProducto" required>
+					 		<span style="color:red" ng-show="nuevoProducto.cod.$dirty && nuevoProducto.cod.$invalid">
+				             <span ng-show="nuevoProducto.cod.$error.required">Codigo Requerido.</span>
 					 	</div>
 
 					</div>
@@ -15,7 +17,11 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="nombre" ng-model="producto.Nombre">
+						 	<input type="text" name="nombre" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-group" placeholder="nombre" ng-model="producto.Nombre" required>
+						 	 <span style="color:red" ng-show="nuevoProducto.nombre.$dirty && nuevoProducto.nombre.$invalid">
+                             <span ng-show="nuevoProducto.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoProducto.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoProducto.nombre.$error.pattern">Ingrese solo letras</span>
 					 	</div>
 				 </div>	
 
@@ -24,9 +30,10 @@
 				<br>
 				<br>
 				<br>
+				<br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosProducto(producto)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button ng-disabled="!nuevoProducto.$disabled" class="btn btn-success" ng-click="obtenerDatosProducto(producto)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosProducto()">Limpiar Campos</button>
 
