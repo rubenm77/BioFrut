@@ -1,13 +1,16 @@
 <div class="container" ng-controller="insertarZonaControllers">
 
 			
-				<form role="form-inline">
-			
+				<form name="nuevaZona" role="form-inline" novalidate>
+			      
+			      <div class="row">
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">cod. Zona : </label>
-					 		<input type="number" class="form-group" placeholder="zona" ng-model="zona.IdZona">
+					 		<input type="number" name="cod" class="form-group" placeholder="zona" ng-model="zona.IdZona" required>
+					 		<span style="color:red" ng-show="nuevaZona.cod.$dirty && nuevaZona.cod.$invalid">
+				             <span ng-show="nuevaZona.cod.$error.required">Codigo Requerido.</span>
 					 	</div>
 
 					</div>
@@ -15,47 +18,56 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="nombre" ng-model="zona.Nombre">
+						 	<input type="text" name="nombre" class="form-group" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="nombre" ng-model="zona.Nombre" required>
+						 	<span style="color:red" ng-show="nuevaZona.nombre.$dirty && nuevaZona.nombre.$invalid">
+                             <span ng-show="nuevaZona.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevaZona.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevaZona.nombre.$error.pattern">Ingrese solo letras</span>
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Total de Pales :</label>
-						 	<input type="text" class="form-group" placeholder="pales" ng-model="zona.TotalPale">
+						 	<input type="number" name="pale" class="form-group" placeholder="ej:3" ng-model="zona.TotalPale" required>
+						 	<span style="color:red" ng-show="nuevaZona.pale.$dirty && nuevaZona.pale.$invalid">
+				             <span ng-show="nuevaZona.pale.$error.required">Total Pales Requerido.</span>
 					 	</div>
 				 </div>
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Bodega :</label>
-						 	<select ng-model="zona.IdBodega"  ng-controller="obtenerNombreBodegasControllers">
+						 	<select name="bodega" ng-model="zona.IdBodega"  ng-controller="obtenerNombreBodegasControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombreBodegas">{{nombre.Nombre}}</option>
 							</select>
+							<span style="color:red" ng-show="nuevaZona.bodega.$dirty && nuevaZona.bodega.$invalid">
+							 <span ng-show="nuevaZona.bodega.$error.required">Bodega Requerida.</span>
 					 	</div>
 				 </div>
-
+               </div>  
+				  <br>
 				  
-
-				</form>	
-
-				<form role="form-inline">
+		       <div class="row">
 					<div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Tipo Almacenaje :</label>
-						 	<select ng-model="zona.IdTipoAlmacenaje"  ng-controller="obtenerNombreAlmacenajesControllers">
+						 	<select name="almacenaje" ng-model="zona.IdTipoAlmacenaje"  ng-controller="obtenerNombreAlmacenajesControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombreAlmacenajes">{{nombre.Nombre}}</option>
 							</select>
+							<span style="color:red" ng-show="nuevaZona.almacenaje.$dirty && nuevaZona.almacenaje.$invalid">
+							 <span ng-show="nuevaZona.almacenaje.$error.required">Tipo Almacenaje Requerido.</span>
 					 	</div>
 				 </div>
-				</form>
+			</div>
+		</form>		
 			
-				<br><br><br><br><br><br>
+				
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosZona(zona)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button ng-disabled="!nuevaZona.$valid" class="btn btn-success" ng-click="obtenerDatosZona(zona)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosZona()">Limpiar Campos</button>
 
