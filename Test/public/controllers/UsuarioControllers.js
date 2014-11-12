@@ -78,3 +78,8 @@ BioFrut.controller('eliminarUsuarioControllers', function($scope,  eliminarUsuar
 
 });
 
+BioFrut.controller('validaUsuarioController', function ($scope) {
+    $scope.actionForm=function(){
+        alert('ng-show');
+    };
+});
