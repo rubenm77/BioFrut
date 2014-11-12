@@ -1,14 +1,16 @@
 <div class="container" ng-controller="insertarDespachoControllers">
 
 			
-				<form role="form-inline">
+				<form  name="nuevoDespacho" role="form-inline" novalidate>
 
-				 
+				 <div class="row">
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">Cod. Despacho: </label>
-					 		<input type="number" class="form-group" placeholder="guia" ng-model="despacho.IdDespacho">
+					 		<input  type="number" name="cod" class="form-group" placeholder="despacho" ng-model="despacho.IdDespacho" required>
+					 		 <span style="color:red" ng-show="nuevoDespacho.cod.$dirty && nuevoDespacho.cod.$invalid">
+				             <span ng-show="nuevoDespacho.cod.$error.required">Codigo Requerido.</span>
 					 	</div>
 
 					</div>
@@ -16,66 +18,74 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha:</label>
-						 	<input type="text" class="form-group" placeholder="bandeja" ng-model="despacho.Fecha">
+						 	<input type="date" name="fecha" class="form-group" placeholder="fecha" ng-model="despacho.Fecha" required>
+						 	 <span style="color:red" ng-show="nuevoDespacho.fecha.$dirty && nuevoDespacho.fecha.$invalid">
+				             <span ng-show="nuevaNuevoDespacho.fecha.$error.required"> Fecha Requerida.</span>
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="text" class="form-group" placeholder="fecha" ng-model="despacho.Hora">
+						 	<input type="time"  name="hora" class="form-group" placeholder="hora" ng-model="despacho.Hora" required>
+						 	 <span style="color:red" ng-show="nuevoDespacho.hora.$dirty && nuevoDespacho.hora.$invalid">
+				             <span ng-show="nuevoDespacho.hora.$error.required">Hora Requerida.</span>
 					 	</div>
 				 </div>
 
 				  <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cantidad Pale :</label>
-						 	<input type="text" class="form-group" placeholder="fecha" ng-model="despacho.CantidadPale">
+						 	<input type="number" name="pale"  ng-pattern=" " class="form-group" placeholder="cantidad pale" ng-model="despacho.CantidadPale" required>
+						 	  <span style="color:red" ng-show="nuevoDespacho.pale.$dirty && nuevoDespacho.pale.$invalid">
+						 	 <span ng-show="nuevoDespacho.pale.$error.pattern">Codigo Invalido</span>
+				             <span ng-show="nuevoDespacho.pale.$error.required">Codigo Requerido.</span>
+				             
 					 	</div>
 				 </div>
+              </div>
+				<br><br>
 
-				
-
-               </form>
-
-             <form role="form-inline">
-
+              <div class="row">
              	 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Tipo de producto:</label>
-						 	<select ng-model="despacho.IdTipoProducto"  ng-controller="obtenerNombreTproductoControllers">
+						 	<select  name="producto" ng-model="despacho.IdTipoProducto"  ng-controller="obtenerNombreTproductoControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombreTproducto">{{nombre.Nombre}}</option>
 							</select>
+							  <span ng-show="nuevoDespacho.producto.$error.required">Codigo Requerido.</span>
 					 	</div>
 				 </div>
 
 				  <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Control :</label>
-						 	<select ng-model="despacho.IdControl"  ng-controller="obtenerNombreControlesControllers">
+						 	<select name="control" ng-model="despacho.IdControl"  ng-controller="obtenerNombreControlesControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="control in nombreControles">{{control.IdControl}}</option>
 							</select>
+							  <span ng-show="nuevoDespacho.control.$error.required">Codigo Requerido.</span>
 					 	</div>
 				 </div>
 
 				  <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Cuadrilla :</label>
-						 	<select ng-model="despacho.IdCuadrilla"  ng-controller="obtenerNombreCuadrillasControllers">
+						 	<select  name="cuadrilla" ng-model="despacho.IdCuadrilla"  ng-controller="obtenerNombreCuadrillasControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="cuadrilla in nombreCuadrillas">{{cuadrilla.Nombre}}</option>
 							</select>
+							  <span ng-show="nuevoDespacho.cuadrilla.$error.required">Codigo Requerido.</span>
 					 	</div>
 				 </div>
-                
-				</form>	
-
-				<br><br><br><br><br><br><br>
+             </div>
+			
+      </form>
+				<br>
 				 <div>
-
-				 	<button class="btn btn-success" ng-click="obtenerDatosDespacho(despacho)"><span class="icon-edit icon-white"></span> Agregar</button> 
+                
+				 	<button ng-disabled="!nuevoDespacho.$valid" class="btn btn-success" ng-click="obtenerDatosDespacho(despacho)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosDespacho()">Limpiar Campos</button>
 
