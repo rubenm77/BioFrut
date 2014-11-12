@@ -65,3 +65,8 @@ BioFrut.controller('eliminarBandejaControllers', function($scope,  eliminarBande
 
 });
 
+BioFrut.controller('validaBandejaController', function ($scope) {
+    $scope.actionForm=function(){
+        alert('span');
+    };
+});

@@ -1,13 +1,16 @@
 <div class="container" ng-controller="insertarBandejaControllers">
 
-			
-				<form role="form-inline">
+		<div ng-controller="validaBandejaController">
+
+				<form  name="nuevaBandeja" role="form-inline" novalidate>
 			
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">N° Bandejas : </label>
-					 		<input type="number" class="form-group" placeholder="cantidad" ng-model="bandeja.NumeroBandeja">
+					 		<input name="nbandeja" type="number" class="form-control" placeholder="cantidad" ng-model="bandeja.NumeroBandeja" required>
+					 		 <span style="color:red" ng-show="nuevaBandeja.nbandeja.$dirty && nuevaBandeja.nbandeja.$invalid">
+				             <span ng-show="nuevaBandeja.nbandeja.$error.required">N° Bandeja Requerido.</span>
 					 	</div>
 
 					</div>
@@ -15,24 +18,32 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha :</label>
-						 	<input type="text" class="form-group" placeholder="fecha" ng-model="bandeja.Fecha">
+						 	<input type="date" ng-pattern="" name="fecha" class="form-control" placeholder="fecha" ng-model="bandeja.Fecha" required>
+						 	 <span style="color:red" ng-show="nuevaBandeja.fecha.$dirty && nuevaBandeja.fecha.$invalid">
+				             <span ng-show="nuevaBandeja.fecha.$error.required"> Fecha Requerida.</span>
+				               <span ng-show="nuevaBandeja.fecha.$error.pattern"> Fecha Invalida</span>
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="text" class="form-group" placeholder="hora" ng-model="bandeja.Hora">
+						 	<input type="time" name="hora" ng-pattern="" class="form-control" placeholder="hora" ng-model="bandeja.Hora" required>
+						 	 <span style="color:red" ng-show="nuevaBandeja.hora.$dirty && nuevaBandeja.hora.$invalid">
+				             <span ng-show="nuevaBandeja.hora.$error.required">Hora Requerida.</span>
+				               <span ng-show="nuevaBandeja.hora.$error.pattern">Hora Invalida</span>
 					 	</div>
 				 </div>
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Tarjeta de Identificacion:</label>
-						 	<select ng-model="bandeja.IdTarjeta"  ng-controller="obtenerNombreTarjetasControllers">
+						 	<select name="tarjeta" ng-model="bandeja.IdTarjeta"  ng-controller="obtenerNombreTarjetasControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombreTarjetas">{{nombre.IdTarjeta}}</option>
 							</select>
+							<span style="color:red" ng-show="nuevaBandeja.tarjeta.$dirty && nuevaBandeja.tarjeta.$invalid">
+				            <span ng-show="nuevaBandeja.tarjeta.$error.required">Tarjeta Requerida.</span>
 					 	</div>
 				 </div>
 
@@ -40,26 +51,28 @@
 				  <div>
 					 	<div class="form-group">
 						 	<label for="">Tipo de Producto :</label>
-						 	<select ng-model="bandeja.IdTipoProducto"  ng-controller="obtenerNombreTproductoControllers">
+						 	<select name="producto" ng-model="bandeja.IdTipoProducto"  ng-controller="obtenerNombreTproductoControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombreTproducto">{{nombre.Nombre}}</option>
 							</select>
+							<span style="color:red" ng-show="nuevaBandeja.producto.$dirty && nuevaBandeja.producto.$invalid">
+				            <span ng-show="nuevaBandeja.producto.$error.required">Tarjeta Requerida.</span>
 					 	</div>
 				 </div>
 
 				</form>	
-
+      
 				
 				<br>
-
+       
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosBandeja(bandeja)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button  ng-disabled="!nuevaBandeja.$valid" class="btn btn-success"  ng-click="obtenerDatosBandeja(bandeja)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosBandeja()">Limpiar Campos</button>
 
 				 </div>
 
 			
-
+   </div>
 </div>
