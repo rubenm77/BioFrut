@@ -20,7 +20,7 @@
 
 				<div class="form-group">
 				  <label for="">Nombre :</label>
-				  <input name="nombre" type="text" ng-minlength="3" ng-pattern="/^[a-zA-Z]*$/" class="form-control" placeholder="nombre" ng-model="usuario.Nombre" required>
+				  <input name="nombre" type="text" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control" placeholder="nombre" ng-model="usuario.Nombre" required>
 				  <span style="color:red" ng-show="nuevoUsuario.nombre.$dirty && nuevoUsuario.nombre.$invalid">
                   <span ng-show="nuevoUsuario.nombre.$error.required">Nombre Requerido.</span>
                   <span ng-show="nuevoUsuario.nombre.$error.minlength">Nombre Invalido</span>
@@ -33,7 +33,7 @@
 
 				<div class="form-group">
 				  <label for="">Apellido :</label>
-				  <input  name="apellido" type="text"  ng-minlength="4" ng-pattern="/^[a-zA-Z]*$/" class="form-control" placeholder="apellido" ng-model="usuario.Apellido" required> 
+				  <input  name="apellido" type="text"  ng-minlength="4" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control" placeholder="apellido" ng-model="usuario.Apellido" required> 
 				  <span style="color:red" ng-show="nuevoUsuario.apellido.$dirty && nuevoUsuario.apellido.$invalid">
                   <span ng-show="nuevoUsuario.apellido.$error.required">Apellido Requerido.</span>
                   <span ng-show="nuevoUsuario.apellido.$error.minlength">Nombre Invalido</span>
