@@ -1,13 +1,15 @@
 <div class="container" ng-controller="insertarHuertoControllers">
 
 			
-				<form role="form-inline">
+				<form name="nuevoHuerto" role="form-inline" novalidate>
 			
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">cod. Huerto : </label>
-					 		<input type="number" class="form-group" placeholder="huerto" ng-model="huerto.IdHuerto">
+					 		<input type="number" name="cod" class="form-group" placeholder="huerto" ng-model="huerto.IdHuerto" required>
+					 		<span style="color:red" ng-show="nuevoHuerto.cod.$dirty && nuevoHuerto.cod.$invalid">
+				             <span ng-show="nuevoHuerto.cod.$error.required">Codigo Requerido.</span>
 					 	</div>
 
 					</div>
@@ -15,17 +17,23 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="nombre" ng-model="huerto.Nombre">
+						 	<input type="text" name="nombre" class="form-group" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="nombre" ng-model="huerto.Nombre" required>
+						 	<span style="color:red" ng-show="nuevoHuerto.nombre.$dirty && nuevoHuerto.nombre.$invalid">
+						 	<span ng-show="nuevoHuerto.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoHuerto.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoHuerto.nombre.$error.pattern">Ingrese solo letras</span>
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Predio :</label>
-						 	<select ng-model="huerto.IdPredio"  ng-controller="obtenerNombrePrediosControllers">
+						 	<select ng-model="huerto.IdPredio" name="predio"  ng-controller="obtenerNombrePrediosControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombrePredios">{{nombre.Nombre}}</option>
 							</select>
+							 <span style="color:red" ng-show="nuevoHuerto.predio.$dirty && nuevoHuerto.predio.$invalid">
+				             <span ng-show="nuevoHuerto.predio.$error.required">Predio Requerido.</span>
 					 	</div>
 				 </div>
 
@@ -34,9 +42,10 @@
 				<br>
 				<br>
 				<br>
+				<br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosHuerto(huerto)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button ng-disabled="!nuevoHuerto.$valid" class="btn btn-success" ng-click="obtenerDatosHuerto(huerto)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosHuerto()">Limpiar Campos</button>
 
