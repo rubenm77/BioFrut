@@ -1,13 +1,15 @@
 <div class="container" ng-controller="insertarCalificacionControllers">
 
 			
-				<form role="form-inline">
+				<form name="nuevaCalificacion" role="form-inline"  novalidate>
 			
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">cod. Calificacion : </label>
-					 		<input type="number" class="form-group" placeholder="calificacion" ng-model="calificacion.IdCalificacion">
+					 		<input type="number" name="cod" class="form-group" placeholder="ej: 01" ng-model="calificacion.IdCalificacion" required>
+					 		 <span style="color:red" ng-show="nuevaCalificacion.cod.$dirty && nuevaCalificacion.cod.$invalid">
+				             <span ng-show="nuevaCalificacion.cod.$error.required"> Codigo Requerido.</span>
 					 	</div>
 
 					</div>
@@ -15,7 +17,9 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nota :</label>
-						 	<input type="text" class="form-group" placeholder="nota" ng-model="calificacion.Nota">
+						 	<input type="number" name="nota" class="form-group" placeholder=" ej:4.0" ng-model="calificacion.Nota" required>
+						    <span style="color:red" ng-show="nuevaCalificacion.nota.$dirty && nuevaCalificacion.nota.$invalid">
+				            <span ng-show="nuevaCalificacion.nota.$error.required">Nota Requerida.</span>
 					 	</div>
 				 </div>	
 
@@ -24,9 +28,10 @@
 				<br>
 				<br>
 				<br>
+				<br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosCalificacion(calificacion)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button  ng-disabled="!nuevaCalificacion.$valid" class="btn btn-success" ng-click="obtenerDatosCalificacion(calificacion)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosCalificacion()">Limpiar Campos</button>
 
