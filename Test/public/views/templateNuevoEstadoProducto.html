@@ -1,13 +1,16 @@
 <div class="container" ng-controller="insertarEstadoProductosControllers">
 
 			
-				<form role="form-inline">
+				<form  name="nuevoEstado" role="form-inline" novalidate>
 			
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">cod. Estado del Producto: </label>
-					 		<input type="number" class="form-group" placeholder="stock" ng-model="estadoproducto.IdEstadoProducto">
+					 		<input type="number" name="cod" class="form-group" name="cod" ng-pattern="" placeholder="codigo" ng-model="estadoproducto.IdEstadoProducto" required>
+					 		<span style="color:red" ng-show="nuevoEstado.cod.$dirty && nuevoEstado.cod.$invalid">
+				            <span ng-show="nuevoEstado.cod.$error.required">Codigo Requerido.</span>
+				            <span ng-show="nuevoEstado.cod.$error.number">Codigo Invalido.</span>
 					 	</div>
 
 					</div>
@@ -15,7 +18,11 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="pales" ng-model="estadoproducto.Nombre">
+						 	<input type="text" name="nombre" class="form-group"  ng-minlength="3" ng-pattern="/^[a-zA-ZÑñ\s]*$/" placeholder="nombre" ng-model="estadoproducto.Nombre" required>
+						 	 <span style="color:red" ng-show="nuevoEstado.nombre.$dirty && nuevoEstado.nombre.$invalid">
+                             <span ng-show="nuevoEstado.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoEstado.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoEstado.nombre.$error.pattern">Ingrese solo letras</span>
 					 	</div>
 				 </div>	
 
@@ -24,9 +31,10 @@
 				<br>
 				<br>
 				<br>
+				<br>
 				 <div>
 
-				 <button class="btn btn-success" ng-click="obtenerDatosEstadoProductos(estadoproducto)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 <button ng-disabled="!nuevoEstado.$valid" class="btn btn-success" ng-click="obtenerDatosEstadoProductos(estadoproducto)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 <button class="btn" ng-click="limpiarDatosEstadoProductos()">Limpiar Campos</button>
 
