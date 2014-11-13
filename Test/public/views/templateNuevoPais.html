@@ -1,13 +1,15 @@
 <div class="container" ng-controller="insertarPaisControllers">
 
 			
-				<form role="form-inline">
+				<form name="nuevoPais" role="form-inline" novalidate>
 			
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">cod. Pais : </label>
-					 		<input type="number" class="form-group" placeholder="pais" ng-model="pais.IdPais">
+					 		<input type="number" name="cod" class="form-group" placeholder="pais" ng-model="pais.IdPais" required>
+					 		<span style="color:red" ng-show="nuevoPais.cod.$dirty && nuevoPais.cod.$invalid">
+				            <span ng-show="nuevoPais.cod.$error.required">Codigo Requerido.</span>
 					 	</div>
 
 					</div>
@@ -15,7 +17,11 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text" class="form-group" placeholder="nombre" ng-model="pais.Nombre">
+						 	<input type="text" name="nombre" class="form-group"  ng-minlength="3" ng-pattern="/^[a-zA-ZÑñ\s]*$/" placeholder="nombre" ng-model="pais.Nombre" required>
+						 	<span style="color:red" ng-show="nuevoPais.nombre.$dirty && nuevoPais.nombre.$invalid">
+                             <span ng-show="nuevoPais.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoPais.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoPais.nombre.$error.pattern">Ingrese solo letras</span>
 					 	</div>
 				 </div>	
 
@@ -25,9 +31,10 @@
 				<br>
 				<br>
 				<br>
+				<br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosPais(pais)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button ng-disabled="!nuevoPais.$valid" class="btn btn-success" ng-click="obtenerDatosPais(pais)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosPais()">Limpiar Campos</button>
 
