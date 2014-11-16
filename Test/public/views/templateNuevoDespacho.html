@@ -54,7 +54,8 @@
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombreTproducto">{{nombre.Nombre}}</option>
 							</select>
-							  <span ng-show="nuevoDespacho.producto.$error.required">Codigo Requerido.</span>
+							  <span style="color:red" ng-show="nuevoDespacho.producto.$dirty && nuevoDespacho.producto.$invalid">
+							  <span ng-show="nuevoDespacho.producto.$error.required">Tipo Producto Requerido.</span>
 					 	</div>
 				 </div>
 
@@ -65,7 +66,8 @@
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="control in nombreControles">{{control.IdControl}}</option>
 							</select>
-							  <span ng-show="nuevoDespacho.control.$error.required">Codigo Requerido.</span>
+							  <span style="color:red" ng-show="nuevoDespacho.control.$dirty && nuevoDespacho.control.$invalid">
+							  <span ng-show="nuevoDespacho.control.$error.required">Control Calidad Requerido.</span>
 					 	</div>
 				 </div>
 
@@ -75,8 +77,9 @@
 						 	<select  name="cuadrilla" ng-model="despacho.IdCuadrilla"  ng-controller="obtenerNombreCuadrillasControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="cuadrilla in nombreCuadrillas">{{cuadrilla.Nombre}}</option>
+							  	<span style="color:red" ng-show="nuevoDespacho.cuadrilla.$dirty && nuevoDespacho.cuadrilla.$invalid">
 							</select>
-							  <span ng-show="nuevoDespacho.cuadrilla.$error.required">Codigo Requerido.</span>
+							  <span ng-show="nuevoDespacho.cuadrilla.$error.required">Cuarilla Requerida.</span>
 					 	</div>
 				 </div>
              </div>

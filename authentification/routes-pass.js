@@ -63,7 +63,7 @@ module.exports = function(app, passport) {
 						
 				 break;
 
-				case 'Digitador': res.redirect('./views/templateProduccionSeleccion.html');
+				case 'Digitador': res.redirect('./views/templateMenuProduccion.html');
 
 				 break;
 
