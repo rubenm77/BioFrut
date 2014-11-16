@@ -45,7 +45,7 @@
 						 	<input type="text" name="fecha" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" class="form-group" placeholder="Dia/Mes/Año" ng-model="trabajador.FechaNacimiento" required>
 						 	<span style="color:red" ng-show="nuevoTrabajador.fecha.$dirty && nuevoTrabajador.fecha.$invalid">
 						 	<span ng-show="nuevoTrabajador.fecha.$error.required">Fecha Requerido.</span>
-						 	<span ng-show="nuevoTrabajador.fecha.$error.pattern">La fecha ha de tener el siguiente formato: dd/mm/YYYYYY</span>
+						 	<span ng-show="nuevoTrabajador.fecha.$error.pattern">La fecha ha de tener el siguiente formato: dia/mes/año</span>
 					 	</div>
 				 </div>
 

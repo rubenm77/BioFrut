@@ -1,13 +1,15 @@
 <div class="container" ng-controller="insertarControlControllers">
 
 			
-				<form role="form-inline">
-			
+				<form name="nuevoControl" role="form-inline" novalidate>
+			    <div class="row">
 					<div class="span3">
 
 					 	<div class="form-group">
 					 		<label for="">cod. Control de Calidad : </label>
-					 		<input type="number" class="form-group" placeholder="control" ng-model="control.IdControl">
+					 		<input type="number" name="codigo" class="form-group" placeholder="control" ng-model="control.IdControl" required>
+					 		 <span style="color:red" ng-show="nuevoControl.codigo.$dirty && nuevoControl.codigo.$invalid">
+				             <span ng-show="nuevoControl.codigo.$error.required">Codigo Invalido.</span>
 					 	</div>
 
 					</div>
@@ -15,55 +17,72 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha :</label>
-						 	<input type="text" class="form-group" placeholder="fecha" ng-model="control.Fecha">
+						 	<input type="text" name="fecha" class="form-group" maxlength="10" ng-pattern="/(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" placeholder="dia/mes/año" ng-model="control.Fecha" required>
+						 	<span style="color:red" ng-show="nuevoControl.fecha.$dirty && nuevoControl.fecha.$invalid">
+						 	<span ng-show="nuevoControl.fecha.$error.required">Fecha Requerido.</span>
+						 	<span ng-show="nuevoControl.fecha.$error.maxlength">Fecha debe contener maximo 10 caracteres</span>
+						 	<span ng-show="nuevoControl.fecha.$error.pattern">La fecha ha de tener el siguiente formato: dia/mes/año</span>
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="text" class="form-group" placeholder="hora" ng-model="control.Hora">
+						 	<input type="text" name="hora"  ng-pattern="/(0[1-9]|1\d|2[0-3]):([0-5]\d):([0-5]\d)$/" maxlength="8" class="form-group" placeholder="hh:mm:ss" ng-model="control.Hora" required>
+						 	<span style="color:red" ng-show="nuevoControl.hora.$dirty && nuevoControl.hora.$invalid">
+						 	<span ng-show="nuevoControl.hora.$error.required">Hora Invalida.</span>
+						 	<span ng-show="nuevoControl.hora.$error.maxlength">Formato Erroneo.</span>
+						 	<span ng-show="nuevoControl.hora.$error.pattern">La hora debe contener hora:minutos:segundos</span>
 					 	</div>
 				 </div>
-
+          
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Total Merma:</label>
-						 	<input type="text" class="form-group" placeholder="merma" ng-model="control.TotalMerma">
+						 	<input  type="number" name="merma" class="form-group" placeholder="merma" ng-model="control.TotalMerma" maxlength="3" required>
+                             <span style="color:red" ng-show="nuevoControl.merma.$dirty && nuevoControl.merma.$invalid">
+				             <span ng-show="nuevoControl.merma.$error.required">Merma Invalida.</span>
+				             <span ng-show="nuevoControl.merma.$error.maxlength">Merma demasiado grande.</span>
 					 	</div>
 				 </div>
 
-				  <br><br><br><br>
+                </div>
 
-				</form>	
+				  <br>
 
-				<form role="form-inline">
+                   <div class="row">
 					<div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Calificacion :</label>
-						 	<select ng-model="control.IdCalificacion"  ng-controller="obtenerNombreCalificacionesControllers">
+						 	<select name="calificacion" ng-model="control.IdCalificacion"  ng-controller="obtenerNombreCalificacionesControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="calificacion in nombreCalificaciones">{{calificacion.Nota}}</option>
 							</select>
+							 <span style="color:red" ng-show="nuevoControl.calificacion.$dirty && nuevoControl.calificacion.$invalid">
+				             <span ng-show="nuevoControl.calificacion.$error.required">Calificación Invalido.</span>
+
 					 	</div>
 				 </div>
 
-				 <form role="form-inline">
+		
 					<div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cod. Estado del producto :</label>
-						 	<select ng-model="control.IdEstadoProducto"  ng-controller="obtenerNombreEstadosControllers">
+						 	<select name="producto" ng-model="control.IdEstadoProducto"  ng-controller="obtenerNombreEstadosControllers" required>
 						 		<option disabled="disabled">Seleccione una opcion</option>
 							  	<option  ng-repeat="nombre in nombreEstadoProductos">{{nombre.Nombre}}</option>
 							</select>
+							 <span style="color:red" ng-show="nuevoControl.producto.$dirty && nuevoControl.producto.$invalid">
+				             <span ng-show="nuevoControl.producto.$error.required">Estado Producto Invalido.</span>
 					 	</div>
 				 </div>
+				</div>
 				</form>
 
-				<br><br><br><br><br><br>
+				<br>
 				 <div>
 
-				 	<button class="btn btn-success" ng-click="obtenerDatosControl(control)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<button ng-disabled="!nuevoControl.$valid" class="btn btn-success" ng-click="obtenerDatosControl(control)"><span class="icon-edit icon-white"></span> Agregar</button> 
 			
 				 	<button class="btn" ng-click="limpiarDatosControl()">Limpiar Campos</button>
 
