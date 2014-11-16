@@ -1,26 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="BioFrut">
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css">
 <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+<link rel="stylesheet" type="text/css" href="../css/c3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+    #chart1{
+    	width: 1000px;
+    	margin:0 auto;
+    }
+    #chart2{
+    	/*border:1px solid #000;*/
+    	width: 900px;
+    	margin:0 auto;
+    }
+
+    #puntaje{
+      border:2px solid red;
+      border-radius: 4px;
+    }
+
+
+    #brand{
+      margin-left: 50px;
+    }
+</style>
 
 </head>
 <body>
-	<br>
-   <ul class="nav nav-tabs">
-      <li class="active">
-        <a href="#">Home</a>
-      </li>
-       <li><a href="#/nuevoUsuario">Reporte Produccion</a></li>
-       <li><a href="#">Reposte Bodega</a></li>
-       <li><a href="#">Reporte Control de Calidad</a></li>
-   </ul>
+  <br>
+       <ul id="myTab" class=" nover nav nav-tabs">
+           <li class="active"><a href="#">Reporte Cuadrillas</a></li>
+           <li><a href="#/reporteDiarioCuadrillas">Reporte Produccion</a></li>
+           <li><a href="#">Reposte Bodega</a></li>
+           <li><a href="#">Reporte Control de Calidad</a></li>
+       </ul>
+    
+     <br>
+     <br>
 
- <label>hosksshs</label>
+     <div ng-view>
+      <h1>Bienvenido</h1>
+     </div>     
+  
+ 
 <script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/angular.js"></script>
+<script type="text/javascript" src="../js/angular-route.js"></script>
+
+<script type="text/javascript" src="../routes/BioFrutRoutes.js"></script>
+
+<script type="text/javascript" src="../controllers/reporteDiarioCuadrillasControllers.js"></script>
+<!-- <script type="text/javascript" src="../models/reporteModel.js"></script> -->
+
+
+<script type="text/javascript" src="../js/c3.js"></script>
+<script type="text/javascript" src="../js/d3.js"></script>
+
+<script type="text/javascript">
+$('#myTab li a').click(function (e) {
+  // e.preventDefault();
+  // $(this).tab('show');
+     $('#myTab a:first').tab('show');
+});
+</script>
+
+<script type="text/javascript">
+
+$('#chart1').slideDown();
+  
+
+$('#chart').slideDown();
+
+</script>
+
 </body>
 </html>

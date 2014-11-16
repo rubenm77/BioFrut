@@ -26,6 +26,7 @@ module.exports = function(app, passport) {
 		var trabajador = require('../otrobackend/routes/trabajador');
 		var zona = require('../otrobackend/routes/zona');
 		var estado=require('../otrobackend/routes/estado');
+		var reporte=require('../otrobackend/routes/reporte');
 
 
 	// =====================================
@@ -107,7 +108,8 @@ module.exports = function(app, passport) {
     });
 
     app.post('/estado/actualizarEstado/estado', estado.actualizarEstado);
-
+    
+    app.get('/reporte/reporteProduccionCuadrilla', reporte.obtenerReporteCuadrilla);
 
 
 	app.get('/usuario/todosLosUsuarios',usuario.todosLosUsuarios);

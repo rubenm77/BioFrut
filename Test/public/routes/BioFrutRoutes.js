@@ -9,7 +9,8 @@ BioFrut.config(['$routeProvider', function($routeProvider, $locationProvider, $h
 	$routeProvider
 
  // direccionamientos de las solicitudes del cliente hacia sus Controllers correspondientes
-  
+  	
+	.when('/reporteDiarioCuadrillas', { controller:'reporteProduccionBarCuadrillasControllers', templateUrl:'../views/templateReporteDiarioCuadrilla.html'})  	
 
 	.when('/Usuarios', { controller:'todosLosUsuariosControllers', templateUrl:'../views/templateTodosLosUsuarios.html'})
 
