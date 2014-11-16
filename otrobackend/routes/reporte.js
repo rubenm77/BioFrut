@@ -24,3 +24,12 @@ exports.obtenerReporteCuadrilla = function(req, res){
 		// console.log(rows);
 	});
 };
+
+exports.obtenerReporteHuerto = function(req, res){
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
+	conexion.query("SELECT SUM(Bandeja.NumeroBandeja) as 'Bandejas', huerto.Nombre FROM bandeja INNER JOIN tarjetatrabajador ON tarjetatrabajador.IdTarjeta = bandeja.IdTarjeta INNER JOIN detalle_cuadrilla ON detalle_cuadrilla.IdTarjeta = tarjetatrabajador.IdTarjeta INNER JOIN cuadrilla ON detalle_cuadrilla.IdCuadrilla = cuadrilla.IdCuadrilla INNER JOIN huerto ON huerto.IdHuerto = cuadrilla.IdHuerto group by  huerto.Nombre;", function(err, rows){
+		if(err) throw console.log(err);
+		res.send(JSON.stringify(rows));
+		// console.log(rows);
+	});
+};

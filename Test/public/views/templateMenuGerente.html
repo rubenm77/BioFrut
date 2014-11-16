@@ -20,7 +20,7 @@
     }
 
     #puntaje{
-      border:2px solid red;
+      border-bottom:1px solid #ccc;
       border-radius: 4px;
     }
 
@@ -28,23 +28,82 @@
     #brand{
       margin-left: 50px;
     }
+
+    #myTab{
+      margin-left: 50px;
+      margin-top: 30px;
+    }
 </style>
 
 </head>
 <body>
   <br>
-       <ul id="myTab" class=" nover nav nav-tabs">
+      <!--  <ul id="myTab" class="nover nav nav-pills">
            <li class="active"><a href="#">Reporte Cuadrillas</a></li>
-           <li><a href="#/reporteDiarioCuadrillas">Reporte Produccion</a></li>
+           <li role="presentation"><a href="#/reporteDiarioCuadrillas">Reporte Produccion</a></li>
            <li><a href="#">Reposte Bodega</a></li>
            <li><a href="#">Reporte Control de Calidad</a></li>
-       </ul>
+       </ul> -->
+
+        <div id="contenedor-menu" class="row-fluid">
+      
+         <div id="menu" class="navbar navbar-inverse navbar-fixed-top">
+              <div class="navbar-inner">
+                <span id="brand" class="brand">Carsol Fruit</span>
+                  <ul class="nav">
+                    <!-- <li><a href="#">Home</a></li> -->
+                    <li class="divider-vertical"></li>
+
+                    <!-- links usuarios -->
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                            Reporte Cuadrillas <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/reporteDiarioCuadrillas">Reporte Diario</a></li>
+                              <!-- <li><a href="#/Usuarios">Todos los Usuarios</a> </li> -->
+                              <!-- <li><a href="">Modificar Usuario</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+
+                    <!-- links nuevos cargos -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Reporte Huertos <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/reporteDiarioHuertos">Reporte Diario</a> </li>
+                              <!-- <li><a href="#/Cargos">Todos los Cargos</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+
+                    <!-- links nuevos cargos -->
+                    <!-- <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Despacho  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevoDespacho">Nuevo Despacho</a> </li>
+                              <li><a href="#/Despachos">Todos los Despacho</a></li>
+                        </ul>
+                    </li> -->
+
+                    <li><a href="/logout">Logout <span class="icon-off icon-white"></span></a></li>
+                      <li class="divider-vertical"></li>
+                  </ul>
+              </div>
+          </div>
+
+  </div>
     
      <br>
      <br>
 
      <div ng-view>
-      <h1>Bienvenido</h1>
      </div>     
   
  
@@ -56,6 +115,7 @@
 <script type="text/javascript" src="../routes/BioFrutRoutes.js"></script>
 
 <script type="text/javascript" src="../controllers/reporteDiarioCuadrillasControllers.js"></script>
+<script type="text/javascript" src="../controllers/reporteDiarioHuertoControllers.js"></script>
 <!-- <script type="text/javascript" src="../models/reporteModel.js"></script> -->
 
 
@@ -63,10 +123,9 @@
 <script type="text/javascript" src="../js/d3.js"></script>
 
 <script type="text/javascript">
-$('#myTab li a').click(function (e) {
+$('#myTab li a').click(function () {
   // e.preventDefault();
-  // $(this).tab('show');
-     $('#myTab a:first').tab('show');
+  $(this).addClass("active");
 });
 </script>
 

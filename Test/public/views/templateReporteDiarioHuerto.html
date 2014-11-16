@@ -1,7 +1,7 @@
 <div class="container">
  <br>
   
-   <div  class="text-center"><h2>Grafico de Produccion Diaria de las Cuadrillas</h2></div>
+   <div  class="text-center"><h2>Grafico de Produccion Diaria de los Huertos</h2></div>
    <div  class="text-center">Ultima Actualizacion: {{ultimaActualizacion}}</div>
 
   
@@ -10,7 +10,7 @@
 
    <div id="chart1">
       <!-- grafico diario de cuadrillas -->
-		  <div id="chart" ></div>
+		  <div id="chartHuerto" ></div>
 	 </div>
 
 	<br>
@@ -23,8 +23,8 @@
   <div id="chart2">
       <br>
 
-      <div id="puntaje" class="text-center">
-         <h3>Total de Bandejas Generadas: {{puntaje}}</h3>
+      <div id="puntaje2">
+         <h3 class="text-center">Recoleccion Total de {{puntaje2}} Bandejas</h3>
          
       </div>
       <br>
@@ -34,7 +34,7 @@
 
     <table class="table table-bordered">
           <tr><td><h4>Cuadrilla</h4></td><td><H4>Bandejas Recolectadas</H4></td></tr>
-          <tr ng-repeat="bandejas in produccion">
+          <tr ng-repeat="bandejas in produccion2">
             <td>{{bandejas.Nombre}}</td>
             <td>{{bandejas.Bandejas}}</td>
           </tr>

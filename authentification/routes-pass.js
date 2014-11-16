@@ -110,6 +110,8 @@ module.exports = function(app, passport) {
     app.post('/estado/actualizarEstado/estado', estado.actualizarEstado);
     
     app.get('/reporte/reporteProduccionCuadrilla', reporte.obtenerReporteCuadrilla);
+    
+    app.get('/reporte/reporteProduccionHuerto', reporte.obtenerReporteHuerto);
 
 
 	app.get('/usuario/todosLosUsuarios',usuario.todosLosUsuarios);
