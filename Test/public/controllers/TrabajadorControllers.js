@@ -33,6 +33,7 @@ BioFrut.controller('obtenerTrabajadorControllers', function($scope, obtenerTraba
 BioFrut.controller('actualizarTrabajadorControllers', function($scope, actualizarTrabajadorModels) {
 
 	actualizarTrabajadorModels.actualizarTrabajador().success(function(data){
+
 		$scope.actualizarTrabajador = data;
 	});
 
@@ -47,24 +48,24 @@ BioFrut.controller('insertarTrabajadorControllers', function($scope, insertarTra
 		// boton almacenar nuevo usuario
 		$scope.obtenerDatosTrabajador = function(trabajador){
 
-			insertarTrabajadorModels.insertarTrabajador(trabajador);
-					 // JSON.stringify(angular.copy(usuario));
-				// console.log(JSON.stringify(angular.copy(usuario)));
-		}
+			// insertarTrabajadorModels.insertarTrabajador(trabajador);
+				
 
+   $scope.message = insertarTrabajadorModels.insertarTrabajador(trabajador);
+   console.log($scope.message);
+     
+      
+       }
+       
+		})
+     
 		// boton limpiar los campos del formulario nuevo usuario
-		$scope.limpiarDatosPale= function(trabajador){
+		$scope.limpiarDatosTrabajador= function(trabajador){
 
-		$scope.trabajador = {};
-
-		}
-
-	});
-
-	// insertarUsuarioModels.insertarUsuario().success(function(data){
-	// 	$scope.insertarUsuario = data;
-	// });
-
+		$scope.trabajador = {};	
+ }
+    
+ 
 });
 
 
