@@ -39,10 +39,11 @@
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Total Merma:</label>
-						 	<input  type="number" name="merma" class="form-group" placeholder="merma" ng-model="control.TotalMerma" maxlength="3" required>
+						 	<input  type="text" name="merma" ng-pattern="/[0-9]/" class="form-group" placeholder="merma" ng-model="control.TotalMerma" maxlength="3" required>
                              <span style="color:red" ng-show="nuevoControl.merma.$dirty && nuevoControl.merma.$invalid">
 				             <span ng-show="nuevoControl.merma.$error.required">Merma Invalida.</span>
 				             <span ng-show="nuevoControl.merma.$error.maxlength">Merma demasiado grande.</span>
+				             <span ng-show="nuevoControl.merma.$error.pattern">Ingrese solo numeros</span>
 					 	</div>
 				 </div>
 
