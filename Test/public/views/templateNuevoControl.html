@@ -19,9 +19,9 @@
 							<label for="">Fecha :</label>
 						 	<input type="text" name="fecha" class="form-group" maxlength="10" ng-pattern="/(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" placeholder="Dia/Mes/Año" ng-model="control.Fecha" required>
 						 	<span style="color:red" ng-show="nuevoControl.fecha.$dirty && nuevoControl.fecha.$invalid">
-						 	<span ng-show="nuevoControl.fecha.$error.required">Fecha Requerido.</span>
+						 	<span ng-show="nuevoControl.fecha.$error.required">Fecha Invalida.</span>
 						 	<span ng-show="nuevoControl.fecha.$error.maxlength">Fecha debe contener maximo 10 caracteres</span>
-						 	<span ng-show="nuevoControl.fecha.$error.pattern">La fecha ha de tener el siguiente formato: dia/mes/año</span>
+						 	<span ng-show="nuevoControl.fecha.$error.pattern">formato fecha dia/mes/año</span>
 					 	</div>
 				 </div>	
 
@@ -32,7 +32,7 @@
 						 	<span style="color:red" ng-show="nuevoControl.hora.$dirty && nuevoControl.hora.$invalid">
 						 	<span ng-show="nuevoControl.hora.$error.required">Hora Invalida.</span>
 						 	<span ng-show="nuevoControl.hora.$error.maxlength">Formato Erroneo.</span>
-						 	<span ng-show="nuevoControl.hora.$error.pattern">La hora debe contener hora:minutos:segundos</span>
+						 	<span ng-show="nuevoControl.hora.$error.pattern">formato hora hh:mm:ss</span>
 					 	</div>
 				 </div>
           
