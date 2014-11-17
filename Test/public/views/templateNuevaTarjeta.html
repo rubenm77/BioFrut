@@ -17,10 +17,11 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha Ingreso :</label>
-						 	<input type="text" name="fecha" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" class="form-group" placeholder="Dia/Mes/Año" ng-model="tarjeta.FechaIngreso" required>
+						 	<input type="text" name="fecha" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" maxlength="10" class="form-group" placeholder="Dia/Mes/Año" ng-model="tarjeta.FechaIngreso" required>
 						 	<span style="color:red" ng-show="nuevaTarjeta.fecha.$dirty && nuevaTarjeta.fecha.$invalid">
 						 	<span ng-show="nuevaTarjeta.fecha.$error.required">Fecha Requerido.</span>
-						 	<span ng-show="nuevaTarjeta.fecha.$error.pattern">La fecha debe contener dd/mm/YYYYYY</span>
+						 	<span ng-show="nuevaTarjeta.fecha.$error.pattern">formato fecha dia/mes/año</span>
+						 	<span ng-show="nuevaTarjeta.fecha.$error.maxlength">la fecha debe contener 8 caracteres maximo</span>
 					 	</div>
 				 </div>	
 
