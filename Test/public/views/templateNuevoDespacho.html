@@ -10,7 +10,7 @@
 					 		<label for="">Cod. Despacho: </label>
 					 		<input  type="number" name="cod" class="form-group" placeholder="despacho" ng-model="despacho.IdDespacho" required>
 					 		 <span style="color:red" ng-show="nuevoDespacho.cod.$dirty && nuevoDespacho.cod.$invalid">
-				             <span ng-show="nuevoDespacho.cod.$error.required">Codigo Requerido.</span>
+				             <span ng-show="nuevoDespacho.cod.$error.required">Codigo Invalido.</span>
 					 	</div>
 
 					</div>
@@ -18,33 +18,39 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha:</label>
-						 	<input type="date" name="fecha" class="form-group" placeholder="fecha" ng-model="despacho.Fecha" required>
+						 	<input type="text" name="fecha" class="form-group" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" maxlength="10" placeholder="Dia/Mes/Año" ng-model="despacho.Fecha" required>
 						 	 <span style="color:red" ng-show="nuevoDespacho.fecha.$dirty && nuevoDespacho.fecha.$invalid">
-				             <span ng-show="nuevaNuevoDespacho.fecha.$error.required"> Fecha Requerida.</span>
+				             <span ng-show="nuevoDespacho.fecha.$error.required"> Fecha Invalida.</span>
+				             <span ng-show="nuevoDespacho.fecha.$error.pattern">formato fecha dia/mes/año</span>
+				             <span ng-show="nuevoDespacho.fecha.$error.maxlength">Fecha debe contener 10 caracteres maximo</span>
+
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="time"  name="hora" class="form-group" placeholder="hora" ng-model="despacho.Hora" required>
+						 	<input type="text"  name="hora" class="form-group" ng-pattern="/(0[1-9]|1\d|2[0-3]):([0-5]\d):([0-5]\d)$/" maxlength="8" placeholder="HH:MM:SS" ng-model="despacho.Hora" required>
 						 	 <span style="color:red" ng-show="nuevoDespacho.hora.$dirty && nuevoDespacho.hora.$invalid">
-				             <span ng-show="nuevoDespacho.hora.$error.required">Hora Requerida.</span>
+				             <span ng-show="nuevoDespacho.hora.$error.required">Hora Invalida.</span>
+				             <span ng-show="nuevoDespacho.hora.$error.pattern">formato hora hh:mm:ss</span>
+				              <span ng-show="nuevoDespacho.hora.$error.maxlengt">Hora debe contener 8 caracteres maximo</span>
 					 	</div>
 				 </div>
 
 				  <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cantidad Pale :</label>
-						 	<input type="number" name="pale"  ng-pattern=" " class="form-group" placeholder="cantidad pale" ng-model="despacho.CantidadPale" required>
+						 	<input type="text" name="pale" maxlength="3" ng-pattern="/[0-9]/" class="form-group" placeholder="cantidad pale" ng-model="despacho.CantidadPale" required>
 						 	  <span style="color:red" ng-show="nuevoDespacho.pale.$dirty && nuevoDespacho.pale.$invalid">
-						 	 <span ng-show="nuevoDespacho.pale.$error.pattern">Codigo Invalido</span>
-				             <span ng-show="nuevoDespacho.pale.$error.required">Codigo Requerido.</span>
+						 	 <span ng-show="nuevoDespacho.pale.$error.pattern">Ingrese solo Numeros</span>
+				             <span ng-show="nuevoDespacho.pale.$error.required">Codigo Invalido.</span>
+				             <span ng-show="nuevoDespacho.pale.$error.maxlength">Debe contener maximo 3 caracteres</span>
 				             
 					 	</div>
 				 </div>
               </div>
-				<br><br>
+				<br>
 
               <div class="row">
              	 <div class="span3">
