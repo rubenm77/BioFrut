@@ -7,9 +7,10 @@
 
 					 	<div class="form-group">
 					 		<label for="">Cod. Control de Bodega : </label>
-					 		<input type="number" name="codigo" class="form-group" placeholder="control de bodega" ng-model="controlbodega.IdControlBodega" required>
+					 		<input type="number" name="codigo" class="form-group" pattern="/^[0-9]/" placeholder="control de bodega" ng-model="controlbodega.IdControlBodega" required>
 					 		<span style="color:red" ng-show="nuevoControlBodega.codigo.$dirty && nuevoControlBodega.codigo.$invalid">
 				             <span ng-show="nuevoControlBodega.codigo.$error.required">Codigo Invalido.</span>
+				             <span ng-show="nuevoControlBodega.codigo.$error.pattern">Codigo Invalido.</span>
 					 	</div>
 
 					</div>

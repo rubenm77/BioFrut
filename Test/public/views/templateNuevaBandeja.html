@@ -10,7 +10,7 @@
 					 		<label for="">N° Bandejas : </label>
 					 		<input name="nbandeja" type="number" class="form-control" placeholder="cantidad" ng-model="bandeja.NumeroBandeja" required>
 					 		 <span style="color:red" ng-show="nuevaBandeja.nbandeja.$dirty && nuevaBandeja.nbandeja.$invalid">
-				             <span ng-show="nuevaBandeja.nbandeja.$error.required">N° Bandeja Requerido.</span>
+				             <span ng-show="nuevaBandeja.nbandeja.$error.required">N° Bandeja Invalido.</span>
 					 	</div>
 
 					</div>
@@ -18,24 +18,28 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha :</label>
-						 	<input type="date" ng-pattern="" name="fecha" class="form-control" placeholder="fecha" ng-model="bandeja.Fecha" required>
+						 	<input type="text"  ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" maxlength="10" name="fecha" class="form-control" placeholder="Dia/Mes/Año" ng-model="bandeja.Fecha" required>
 						 	 <span style="color:red" ng-show="nuevaBandeja.fecha.$dirty && nuevaBandeja.fecha.$invalid">
-				             <span ng-show="nuevaBandeja.fecha.$error.required"> Fecha Requerida.</span>
-				               <span ng-show="nuevaBandeja.fecha.$error.pattern">Fecha Invalida</span>
-
+				             <span ng-show="nuevaBandeja.fecha.$error.required"> Fecha Invalida.</span>
+				             <span ng-show="nuevaBandeja.fecha.$error.pattern">formato fecha dia/mes/año</span>
+				             <span ng-show="nuevaBandeja.fecha.$error.maxlength">Fecha debe contener 8 caracteres maximo</span>
+				             
 					 	</div>
 				 </div>	
 
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="time" name="hora" ng-pattern="" class="form-control" placeholder="hora" ng-model="bandeja.Hora" required>
+						 	<input type="text" name="hora" ng-pattern="/(0[1-9]|1\d|2[0-3]):([0-5]\d):([0-5]\d)$/" maxlength="8" class="form-control" placeholder="hh:mm:ss" ng-model="bandeja.Hora" required>
 						 	 <span style="color:red" ng-show="nuevaBandeja.hora.$dirty && nuevaBandeja.hora.$invalid">
-				             <span ng-show="nuevaBandeja.hora.$error.required">Hora Requerida.</span>
-				               <span ng-show="nuevaBandeja.hora.$error.pattern">Hora Invalida</span>
+				             <span ng-show="nuevaBandeja.hora.$error.required">Hora Invalida.</span>
+				             <span ng-show="nuevaBandeja.hora.$error.pattern">formato hora hh:mm:ss</span>
+				             <span ng-show="nuevaBandeja.hora.$error.maxlength">Hora debe contener 8 caracteres maximo</span>
+
+
 					 	</div>
 				 </div>
-
+               
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Tarjeta de Identificacion:</label>
@@ -47,8 +51,9 @@
 				            <span ng-show="nuevaBandeja.tarjeta.$error.required">Tarjeta Requerida.</span>
 					 	</div>
 				 </div>
-
-
+             
+                  <br>
+                  
 				  <div>
 					 	<div class="form-group">
 						 	<label for="">Tipo de Producto :</label>
