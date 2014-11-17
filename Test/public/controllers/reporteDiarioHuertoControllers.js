@@ -59,7 +59,7 @@ BioFrut.controller('reporteProduccionBarHuertosControllers', function($scope,cit
       // console.log($scope.config.data1);
     $scope.typeOptions = ["line","bar","spline","step","area","area-step","area-spline","pie","donut"];
  
-    $scope.config.type1 = $scope.typeOptions[4];
+    $scope.config.type1 = $scope.typeOptions[2];
     // $scope.config.type2=$scope.typeOptions[0];
 
     var barConfig = {};
