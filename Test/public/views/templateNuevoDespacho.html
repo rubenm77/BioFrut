@@ -18,7 +18,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha:</label>
-						 	<input type="text" name="fecha" class="form-group" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" maxlength="10" placeholder="Dia/Mes/Año" ng-model="despacho.Fecha" required>
+						 	<input type="text" name="fecha" class="form-group" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" ng-maxlength="10" placeholder="Dia/Mes/Año" ng-model="despacho.Fecha" required>
 						 	 <span style="color:red" ng-show="nuevoDespacho.fecha.$dirty && nuevoDespacho.fecha.$invalid">
 				             <span ng-show="nuevoDespacho.fecha.$error.required"> Fecha Invalida.</span>
 				             <span ng-show="nuevoDespacho.fecha.$error.pattern">formato fecha dia/mes/año</span>
@@ -30,7 +30,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="text"  name="hora" class="form-group" ng-pattern="/(0[1-9]|1\d|2[0-3]):([0-5]\d):([0-5]\d)$/" maxlength="8" placeholder="HH:MM:SS" ng-model="despacho.Hora" required>
+						 	<input type="text"  name="hora" class="form-group" ng-pattern="/(0[1-9]|1\d|2[0-3]):([0-5]\d):([0-5]\d)$/" ng-maxlength="8" placeholder="HH:MM:SS" ng-model="despacho.Hora" required>
 						 	 <span style="color:red" ng-show="nuevoDespacho.hora.$dirty && nuevoDespacho.hora.$invalid">
 				             <span ng-show="nuevoDespacho.hora.$error.required">Hora Invalida.</span>
 				             <span ng-show="nuevoDespacho.hora.$error.pattern">formato hora hh:mm:ss</span>
@@ -41,7 +41,7 @@
 				  <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Cantidad Pale :</label>
-						 	<input type="text" name="pale" maxlength="3" ng-pattern="/[0-9]/" class="form-group" placeholder="cantidad pale" ng-model="despacho.CantidadPale" required>
+						 	<input type="text" name="pale" ng-maxlength="3" ng-pattern="/[0-9]/" class="form-group" placeholder="cantidad pale" ng-model="despacho.CantidadPale" required>
 						 	  <span style="color:red" ng-show="nuevoDespacho.pale.$dirty && nuevoDespacho.pale.$invalid">
 						 	 <span ng-show="nuevoDespacho.pale.$error.pattern">Ingrese solo Numeros</span>
 				             <span ng-show="nuevoDespacho.pale.$error.required">Codigo Invalido.</span>

@@ -17,7 +17,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Fecha :</label>
-						 	<input type="text" name="fecha" class="form-group" maxlength="10" ng-pattern="/(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" placeholder="Dia/Mes/Año" ng-model="control.Fecha" required>
+						 	<input type="text" name="fecha" class="form-group" ng-maxlength="10" ng-pattern="/(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" placeholder="Dia/Mes/Año" ng-model="control.Fecha" required>
 						 	<span style="color:red" ng-show="nuevoControl.fecha.$dirty && nuevoControl.fecha.$invalid">
 						 	<span ng-show="nuevoControl.fecha.$error.required">Fecha Invalida.</span>
 						 	<span ng-show="nuevoControl.fecha.$error.maxlength">Fecha debe contener maximo 10 caracteres</span>
@@ -28,7 +28,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Hora :</label>
-						 	<input type="text" name="hora"  ng-pattern="/(0[1-9]|1\d|2[0-3]):([0-5]\d):([0-5]\d)$/" maxlength="8" class="form-group" placeholder="HH:MM:SS" ng-model="control.Hora" required>
+						 	<input type="text" name="hora"  ng-pattern="/(0[1-9]|1\d|2[0-3]):([0-5]\d):([0-5]\d)$/" ng-maxlength="8" class="form-group" placeholder="HH:MM:SS" ng-model="control.Hora" required>
 						 	<span style="color:red" ng-show="nuevoControl.hora.$dirty && nuevoControl.hora.$invalid">
 						 	<span ng-show="nuevoControl.hora.$error.required">Hora Invalida.</span>
 						 	<span ng-show="nuevoControl.hora.$error.maxlength">Formato Erroneo.</span>
@@ -39,7 +39,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Total Merma:</label>
-						 	<input  type="text" name="merma" ng-pattern="/[0-9]/" class="form-group" placeholder="merma" ng-model="control.TotalMerma" maxlength="3" required>
+						 	<input  type="text" name="merma" ng-pattern="/[0-9]/" class="form-group" placeholder="merma" ng-model="control.TotalMerma" ng-maxlength="3" required>
                              <span style="color:red" ng-show="nuevoControl.merma.$dirty && nuevoControl.merma.$invalid">
 				             <span ng-show="nuevoControl.merma.$error.required">Merma Invalida.</span>
 				             <span ng-show="nuevoControl.merma.$error.maxlength">Merma demasiado grande.</span>

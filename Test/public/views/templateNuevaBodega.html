@@ -9,7 +9,7 @@
 					 		<label for="">cod. Bodega : </label>
 					 		<input type="number"  name="codigo" class="form-group" placeholder="bodega" ng-model="bodega.IdBodega" required>
 					 		 <span style="color:red" ng-show="nuevaBodega.codigo.$dirty && nuevaBodega.codigo.$invalid">
-				             <span ng-show="nuevaBodega.codigo.$error.required">Codigo Requerido.</span>
+				             <span ng-show="nuevaBodega.codigo.$error.required">Codigo Invalido.</span>
 					 	</div>
 
 					</div>
@@ -17,7 +17,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Nombre :</label>
-						 	<input type="text"  name="nombre"  ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-group" placeholder="nombre" ng-model="bodega.Ciudad" required>
+						 	<input type="text"  name="nombre" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-group" placeholder="nombre" ng-model="bodega.Ciudad" required>
 						 	  <span style="color:red" ng-show="nuevaBodega.nombre.$dirty && nuevaBodega.nombre.$invalid">
                              <span ng-show="nuevaBodega.nombre.$error.required">Nombre Requerido.</span>
                              <span ng-show="nuevaBodega.nombre.$error.minlength">Nombre demasiado corto</span>
@@ -30,7 +30,7 @@
 					 	<div class="form-group">
 						 	<label for="">Direccion :</label>
 						 	<input type="text" name="direc" ng-minlength="4" ng-pattern="" class="form-group" placeholder="direccion" ng-model="bodega.Direccion" required>
-						 	<span style="color:red" ng-show="nuevaBodega.direc.$dirty && nuevaBodega.direc.$invalid">
+						 	<span style="color:red" ng-show="nevaBodega.direc.$dirty && nuevaBodega.direc.$invalid">
                             <span ng-show="nuevaBodega.direc.$error.required">Dirección Requerida.</span>
                             <span ng-show="nuevaBodega.direc.$error.minlength">Dirección demasiado corta</span>
                             <span ng-show="nuevaBodega.direc.$error.pattern">Direccion Invalida</span>

@@ -9,7 +9,7 @@
 					 		<label for="">cod. Calificacion : </label>
 					 		<input type="number" name="cod" class="form-group" placeholder="ej: 01" ng-model="calificacion.IdCalificacion" required>
 					 		 <span style="color:red" ng-show="nuevaCalificacion.cod.$dirty && nuevaCalificacion.cod.$invalid">
-				             <span ng-show="nuevaCalificacion.cod.$error.required"> Codigo Requerido.</span>
+				             <span ng-show="nuevaCalificacion.cod.$error.required"> Codigo Invalido.</span>
 					 	</div>
 
 					</div>
@@ -19,7 +19,7 @@
 							<label for="">Nota :</label>
 						 	<input type="number" name="nota" class="form-group" placeholder=" ej:4.0" ng-model="calificacion.Nota" required>
 						    <span style="color:red" ng-show="nuevaCalificacion.nota.$dirty && nuevaCalificacion.nota.$invalid">
-				            <span ng-show="nuevaCalificacion.nota.$error.required">Nota Requerida.</span>
+				            <span ng-show="nuevaCalificacion.nota.$error.required">Nota Invalida.</span>
 					 	</div>
 				 </div>	
 

@@ -25,7 +25,7 @@ exports.todasLasBodegas = function(req, res){
 };
 
 exports.obtenerNombreBodegas = function(req, res){
-	res.header("Access-Control-Allow-Origin","http://localhost:5000,http://192.168.173.1:5000");
+	res.header("Access-Control-Allow-Origin","http://localhost:5000");
 	conexion.query('SELECT Nombre FROM bodega;',function(err, rows){
 		if(err) throw console.log(err);
 		res.send(rows);

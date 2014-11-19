@@ -42,7 +42,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 						 	<label for="">Fecha de Nacimiento :</label>
-						 	<input type="text" name="fecha" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" maxlength="10" class="form-group" placeholder="Dia/Mes/Año" ng-model="trabajador.FechaNacimiento" required>
+						 	<input type="text" name="fecha" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" ng-maxlength="10" class="form-group" placeholder="Dia/Mes/Año" ng-model="trabajador.FechaNacimiento" required>
 						 	<span style="color:red" ng-show="nuevoTrabajador.fecha.$dirty && nuevoTrabajador.fecha.$invalid">
 						 	<span ng-show="nuevoTrabajador.fecha.$error.required">Fecha Requerido.</span>
 						 	<span ng-show="nuevoTrabajador.fecha.$error.pattern"> formato fecha dia/mes/año</span>

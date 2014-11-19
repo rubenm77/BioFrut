@@ -38,9 +38,14 @@ BioFrut.controller('insertarBandejaControllers', function($scope, insertarBandej
 		// boton almacenar nuevo usuario
 		$scope.obtenerDatosBandeja= function(bandeja){
 
-			insertarBandejaModels.insertarBandeja(bandeja);
-					 // JSON.stringify(angular.copy(usuario));
-				// console.log(JSON.stringify(angular.copy(usuario)));
+			var respuesta=insertarBandejaModels.insertarBandeja(bandeja);
+            
+          for (var i = 0; i < respuesta.length; i++) {
+          	respuesta[i];
+          };
+			
+			console.log(respuesta[i]);
+			
 		}
 
 		// boton limpiar los campos del formulario nuevo usuario

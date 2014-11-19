@@ -18,7 +18,7 @@
 				 <div class="span3">
 					 	<div class="form-group">
 							<label for="">Cantidad de Pale :</label>
-						 	<input type="text" name="pale" class="form-group" ng-pattern="/[0-9]/" maxlength="4" placeholder="pale" ng-model="controlbodega.CantidadPale" required>
+						 	<input type="text" name="pale" class="form-group" ng-pattern="/[0-9]/" ng-maxlength="4" placeholder="pale" ng-model="controlbodega.CantidadPale" required>
 						 	 <span style="color:red" ng-show="nuevoControlBodega.pale.$dirty && nuevoControlBodega.pale.$invalid">
 				             <span ng-show="nuevoControlBodega.pale.$error.required">Cantidad de Pales Invalida.</span>
 				             <span ng-show="nuevoControlBodega.pale.$error.maxlength">Cantidad demasiado grande.</span>
